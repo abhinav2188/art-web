@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TextInput from "../components/input/TextInput";
 import TextPassword from "../components/input/TextPassword";
 import { loginUser } from "../services/authService";
 import SubmitButton from "../components/button/SubmitButton";
 import { useNavigate } from "react-router-dom";
-
+import UserContext from "../context/UserContext";
 
 const Login = (props) => {
 
@@ -15,12 +15,13 @@ const Login = (props) => {
 
     let [loading, setLoading] = useState(false);
 
+    let userContext = useContext(UserContext);
+
     let navigate = useNavigate();
 
     function handleChange(event) {
         let name = event.target.name;
         let value = event.target.value;
-        console.log(name, value);
         setFormData(prevState => ({
             ...prevState,
             [name]: value
@@ -28,18 +29,20 @@ const Login = (props) => {
     }
 
     function submitLoginForm(event) {
-        setLoading(true);
         event.preventDefault();
+        setLoading(true);
         loginUser(formData.email, formData.password)
-            .then((isUserLogged) => {
-                console.log(isUserLogged);
+            .then((userData) => {
+                console.log(userData);
                 setLoading(false);
-                if (isUserLogged) {
-                    navigate("/", { replace: true });
+                if (userData) {
+                    userContext.setUser(userData);
+                    window.sessionStorage.setItem("userDetails", JSON.stringify(userData));
                     setFormData({
                         email: "",
                         password: ""
                     });
+                    navigate("/", { replace: true });
                 }
             });
     }

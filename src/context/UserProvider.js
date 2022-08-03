@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import { useSessionStorage } from "./sessionStorageHook";
 import UserContext from "./UserContext";
 
 const UserProvider = (props) => {
@@ -7,7 +8,6 @@ const UserProvider = (props) => {
     useEffect(() => {
         console.log("checking user logged in status");
         let userJson = window.sessionStorage.getItem("userDetails");
-        console.log(userJson);
         if (userJson == null) setUser(null);
         else {
             const foundUser = JSON.parse(userJson);
