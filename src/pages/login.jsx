@@ -25,7 +25,7 @@ const Login = (props) => {
         setFormData(prevState => ({
             ...prevState,
             [name]: value
-        }));
+        }))
     }
 
     function submitLoginForm(event) {

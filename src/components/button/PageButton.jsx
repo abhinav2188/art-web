@@ -8,7 +8,7 @@ const PageButton = (props) => {
             <button className="bg-gray-200 rounded w-5 h-5" onClick={() => {
                 props.setPageNo(prevPageNo => (prevPageNo - 1) < 0 ? prevPageNo : prevPageNo - 1);
             }}>-</button>
-            <p classname="w-12">{props.pageNo + 1}</p>
+            <p className="w-12">{props.pageNo + 1}</p>
             <button className="bg-gray-200 rounded w-5 h-5" onClick={() => {
                 props.setPageNo(prevPageNo => (prevPageNo + 1) >= props.totalPagesCount ? prevPageNo : prevPageNo + 1);
             }}>+</button>
