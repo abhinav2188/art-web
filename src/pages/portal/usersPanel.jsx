@@ -21,7 +21,7 @@ const UsersPanel = (props) => {
 
 
     return (
-        <div>
+        <div className="w-full">
             <p>Users Panel </p>
             <p>Total Users : {usersData.totalUsers}</p>
             <PageButton pageNo={pageNo} setPageNo={setPageNo} totalPagesCount={usersData.totalPages} />
