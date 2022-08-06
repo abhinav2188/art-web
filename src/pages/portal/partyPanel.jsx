@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import Sections from "../../components/Sections";
 import { getAllParty } from "../../services/partyService";
 import AddParty from "./AddParty";
 import UpdateParty from "./UpdateParty";
@@ -13,6 +14,8 @@ const PartyPanel = (props) => {
         partyList: []
     });
     const [pageNo, setPageNo] = useState(0);
+    const [currentParty, setCurrentParty] = useState(null);
+
     const [section, setSection] = useState("view");
 
     useEffect(() => {
@@ -47,8 +50,6 @@ const PartyPanel = (props) => {
         setCurrentParty(null);
     }
 
-    const [currentParty, setCurrentParty] = useState(null);
-
     const sections = [{
         name: "add",
         component: <AddParty addPartyToView={addPartyToView} />
@@ -60,31 +61,8 @@ const PartyPanel = (props) => {
         component: <UpdateParty updatePartyToView={updatePartyToView} formData={currentParty} />
     }];
 
-    function isSectionAction(name) {
-        return section == name;
-    }
-
     return (
-        <div>
-            <nav className="shadow-sm w-full flex items-center gap-4 px-16">
-                <NavLink to="">
-                    <span>Party Panel</span>
-                </NavLink>
-                <div className="flex items-center gap-4">
-                    {
-                        sections.map((sec, i) =>
-                            <button className={`${isSectionAction(sec.name) ? "bg-gray-200" : ""}`} onClick={() => setSection(sec.name)} key={i}>{sec.name}</button>
-                        )
-                    }
-                </div>
-            </nav>
-            <div>
-                {
-                    sections.filter(section => isSectionAction(section.name)).map(section =>
-                        section.component)
-                }
-            </div>
-        </div>
+        <Sections sections={sections} section={section} setSection={setSection} />
     );
 }
 
