@@ -34,7 +34,7 @@ const UserRow = (props) => {
         <tr>
             <td className="p-1 border">{userData.email}</td>
             <td className="p-1 border">{userData.mobile}</td>
-            <td className="p-1 border" disbaled>
+            <td className="p-1 border" >
                 <select name="roles" value={userData.roles == null ? userRoles[3] : userData.roles} onChange={handleChange}>
                     {
                         userRoles.map((role, i) =>

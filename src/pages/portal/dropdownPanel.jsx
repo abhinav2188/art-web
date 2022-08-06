@@ -6,7 +6,7 @@ const DropdownsPanel = (props) => {
 
     const [dropdownKeys, setDropdownKeys] = useState(["None"]);
     const [dropdownData, setDropdownData] = useState({
-        key: "NONE",
+        key: null,
         values: []
     });
 
@@ -46,13 +46,14 @@ const DropdownsPanel = (props) => {
     useEffect(() => {
         getDropdownKeys().then(
             response => {
-                setDropdownKeys(response.keys);
+                if (response)
+                    setDropdownKeys(response.keys);
             }
         )
     }, [])
 
     useEffect(() => {
-        if (dropdownData.key != "NONE")
+        if (dropdownData.key)
             getDropdownValues(dropdownData.key, null, null)
                 .then(response => {
                     console.log(response.dropdownKeyDetailsMap[dropdownData.key].values);
@@ -85,12 +86,12 @@ const DropdownsPanel = (props) => {
         <div>
             <h3>Dropdowns Panel</h3>
             <select name="key" value={dropdownData.key} onChange={handleChange}>
+                <option disabled selected value> -- select an option -- </option>
                 {
                     dropdownKeys.map((d, i) =>
                         <option key={i} value={d.dropdownKey}>{d.dropdownKey + " --form: " + d.formType}</option>
                     )
                 }
-                <option value="NONE">NONE</option>
             </select>
             <table>
                 <thead className="text-bold">

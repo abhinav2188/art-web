@@ -1,9 +1,9 @@
 import instance from "../axiosInstance";
 // import axios from "axios";
 
-export async function getAllUsers(pageNo) {
-    console.log("getAllUsers()");
-    return instance.get("/int/users", {
+export async function getAllParty(pageNo) {
+    console.log("getAllParty()");
+    return instance.get("/int/party/all", {
         params: {
             pageNo
         }
@@ -21,10 +21,28 @@ export async function getAllUsers(pageNo) {
         })
 }
 
-export async function updateUserAuth(userId, data) {
-    console.log("getAllUsers()");
-    const path = "/int/users/" + userId + "/auth";
-    return instance.patch(path, data).then(
+export async function postParty(data) {
+    console.log("postParty()");
+    const path = "/ext/party";
+    return instance.post(path, data).then(
+        response => {
+            console.log("response data:", response.data);
+            alert(response.data.responseMsg);
+            return response.data;
+        }
+    )
+        .catch(error => {
+            console.log("error:", error);
+            console.log(error.response.data);
+            alert(error.response.data.status + ", " + error.response.data.responseMsg);
+            return null;
+        })
+}
+
+export async function updateParty(id, data) {
+    console.log("updateParty()");
+    const path = "/int/party/" + id;
+    return instance.put(path, data).then(
         response => {
             console.log("response data:", response.data);
             alert(response.data.responseMsg);
