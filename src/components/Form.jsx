@@ -62,7 +62,10 @@ const Form = ({ fields, handleChange, onSubmit, formData, loading, dropdowns }) 
                     <CustomInput field={field} value={formData[field.name]} handleChange={handleChange} dropdowns={dropdowns} />
                 )
             }
-            <SubmitButton onClick={onSubmit} loading={loading} />
+            <SubmitButton onClick={(event) => {
+                event.preventDefault();
+                onSubmit();
+            }} loading={loading} />
         </form>
     );
 

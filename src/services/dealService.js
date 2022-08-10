@@ -110,3 +110,40 @@ export async function getDeal(dealId) {
             return null;
         })
 }
+
+
+export async function addDealOwner(dealId, data) {
+    // console.log("addDealOwner(" + userEmail + ")");
+    const path = "/int/deals/" + dealId + "/add-auth";
+    return instance.patch(path, data).then(
+        response => {
+            console.log("response data:", response.data);
+            alert(response.data.responseMsg);
+            return response.data;
+        }
+    )
+        .catch(error => {
+            console.log("error:", error);
+            console.log(error.response.data);
+            alert(error.status + ", " + error.response.data.responseMsg);
+            return null;
+        })
+}
+
+export async function removeDealOwner(dealId, data) {
+    // console.log("removeDealOwner(" + userEmail+ ")");
+    const path = "/int/deals/" + dealId + "/remove-auth";
+    return instance.patch(path, data).then(
+        response => {
+            console.log("response data:", response.data);
+            alert(response.data.responseMsg);
+            return response.data;
+        }
+    )
+        .catch(error => {
+            console.log("error:", error);
+            console.log(error.response.data);
+            alert(error.status + ", " + error.response.data.responseMsg);
+            return null;
+        })
+}

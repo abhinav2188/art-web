@@ -3,7 +3,7 @@ import TextInput from "../components/input/TextInput";
 import TextPassword from "../components/input/TextPassword";
 import { loginUser } from "../services/authService";
 import SubmitButton from "../components/button/SubmitButton";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 
 const Login = (props) => {
@@ -42,7 +42,7 @@ const Login = (props) => {
                         email: "",
                         password: ""
                     });
-                    navigate("/", { replace: true });
+                    navigate("/portal", { replace: true });
                 }
             });
     }

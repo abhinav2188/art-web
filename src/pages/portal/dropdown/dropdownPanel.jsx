@@ -1,14 +1,38 @@
 import React, { useEffect, useState } from "react";
-import ActionButton from "../../components/button/ActionButton";
-import { deleteDropdownValue, getDropdownKeys, getDropdownValues, postDropdownValue } from "../../services/dropdownService";
+import ActionButton from "../../../components/button/ActionButton";
+import { deleteDropdownValue, getDropdownKeys, getDropdownValues, postDropdownValue } from "../../../services/dropdownService";
 
 const DropdownsPanel = (props) => {
 
-    const [dropdownKeys, setDropdownKeys] = useState(["None"]);
+    const [dropdownKeys, setDropdownKeys] = useState([]);
+
+    useEffect(() => {
+        getDropdownKeys().then(
+            response => {
+                if (response)
+                    setDropdownKeys(response.keys);
+            }
+        )
+    }, [])
+
     const [dropdownData, setDropdownData] = useState({
-        key: null,
+        key: "",
         values: []
     });
+
+    useEffect(() => {
+        if (dropdownData.key)
+            getDropdownValues(dropdownData.key, null, null)
+                .then(response => {
+                    console.log(response.dropdownKeyDetailsMap[dropdownData.key].values);
+                    const dropdownValues = response.dropdownKeyDetailsMap[dropdownData.key].values;
+                    setDropdownData(prevState => ({
+                        ...prevState,
+                        values: dropdownValues
+                    }));
+                })
+    }, [dropdownData.key])
+
 
     const [addDropdownValueData, setAddDropdownValueData] = useState({
         key: "",
@@ -43,27 +67,6 @@ const DropdownsPanel = (props) => {
             }));
     }
 
-    useEffect(() => {
-        getDropdownKeys().then(
-            response => {
-                if (response)
-                    setDropdownKeys(response.keys);
-            }
-        )
-    }, [])
-
-    useEffect(() => {
-        if (dropdownData.key)
-            getDropdownValues(dropdownData.key, null, null)
-                .then(response => {
-                    console.log(response.dropdownKeyDetailsMap[dropdownData.key].values);
-                    const dropdownValues = response.dropdownKeyDetailsMap[dropdownData.key].values;
-                    setDropdownData(prevState => ({
-                        ...prevState,
-                        values: dropdownValues
-                    }));
-                })
-    }, [dropdownData.key])
 
     function addDropdownValue() {
         setValueSaveProgress(true);
@@ -86,7 +89,7 @@ const DropdownsPanel = (props) => {
         <div>
             <h3>Dropdowns Panel</h3>
             <select name="key" value={dropdownData.key} onChange={handleChange}>
-                <option disabled selected value> -- select an option -- </option>
+                <option disabled selected value=""> -- select an option -- </option>
                 {
                     dropdownKeys.map((d, i) =>
                         <option key={i} value={d.dropdownKey}>{d.dropdownKey + " --form: " + d.formType}</option>

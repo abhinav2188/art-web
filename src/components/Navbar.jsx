@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import logo from "../logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 
 const Navbar = () => {
     const userContext = useContext(UserContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log("logged change");
@@ -13,6 +14,7 @@ const Navbar = () => {
     const logoutUser = () => {
         userContext.setUser(null);
         window.sessionStorage.clear();
+        navigate("/login", { replace: true });
     }
 
     return (

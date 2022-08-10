@@ -21,6 +21,6 @@ export default Home;
 
             // {
             //     userContext.user ?
-            //         <Navigate to="/portal" replace={true} /> :
-            //         <Navigate to="/login" replace={true} />
+            //         <Navigate to="portal" replace={true} /> :
+            //         <Navigate to="login" replace={true} />
             // }

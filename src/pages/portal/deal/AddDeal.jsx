@@ -4,6 +4,7 @@ import DealSection3 from "./DealSection3";
 import DealSection2 from "./DealSection2";
 import DealSection4 from "./DealSection4";
 import DealContacts from "../deal-contacts/DealContacts";
+import DealOwners from "./DealOwners";
 
 const AddDeal = (props) => {
 
@@ -71,7 +72,7 @@ const AddDeal = (props) => {
     // ]
 
     return (
-        <div>
+        <div className="flex flex-col gap-8 p-8">
             <DealSection1 setDealId={setDealId} setDealDetails={setDealDetails} data={dealDetails.cardDetails} edit />
             {
                 dealId &&
@@ -79,6 +80,7 @@ const AddDeal = (props) => {
                     <DealSection2 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.productDetails} edit />
                     <DealSection3 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.commonDetails} edit />
                     <DealSection4 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.additionalDetails} edit />
+                    <DealOwners dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.authorizationDetails} />
                     <DealContacts dealId={dealId} />
                 </div>
             }

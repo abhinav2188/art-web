@@ -5,11 +5,9 @@ import Register from './pages/register';
 import Portal from './pages/portal';
 import UserProvider from "./context/UserProvider";
 import UsersPanel from './pages/portal/usersPanel';
-import DropdownsPanel from './pages/portal/dropdownPanel';
+import DropdownsPanel from './pages/portal/dropdown/dropdownPanel';
 import DealsPanel from './pages/portal/dealsPanel';
 import PartyPanel from './pages/portal/partyPanel';
-import ViewParty from './pages/portal/ViewParty';
-import AddParty from './pages/portal/AddParty';
 import { AxiosInterceptor } from './axiosInstance';
 import Forbidden from './pages/portal/forbidden';
 
@@ -26,10 +24,7 @@ function App() {
                   <Route path='users' element={<UsersPanel />}></Route>
                   <Route path='deals' element={<DealsPanel />}></Route>
                   <Route path='dropdowns' element={<DropdownsPanel />}></Route>
-                  <Route path='party' element={<PartyPanel />}>
-                    <Route path='view' element={<ViewParty />}></Route>
-                    <Route path='add' element={<AddParty />}></Route>
-                  </Route>
+                  <Route path='party' element={<PartyPanel />} />
                   <Route path='forbidden' element={<Forbidden />}></Route>
                 </Route>
                 <Route path='login' element={<Login />}></Route>
