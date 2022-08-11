@@ -83,10 +83,6 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
         roadDetails: ""
     });
 
-    const handleChange = (event) => {
-        handleFormDataChange(event, setFormData);
-    }
-
     const [dropdowns, setDropdowns] = useState({
         PRODUCT_TYPE: {
             values: []
@@ -138,7 +134,13 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
 
     return (
         editMode ?
-            <Form fields={formFields} formData={formData} dropdowns={dropdowns} handleChange={handleChange} onSubmit={handleSubmit} loading={loading} />
+            <Form
+                fields={formFields}
+                formData={formData}
+                setFormData={setFormData}
+                dropdowns={dropdowns}
+                onSubmit={handleSubmit}
+                loading={loading} />
             :
             <ViewDetails viewFields={viewFields} data={data} actions={actions} title="product details" />
     );

@@ -33,7 +33,8 @@ const Table = ({ viewFields, entriesList, totalEntries, totalPages, pageNo, setP
                                                 <td>{String(entry[viewField.name])}</td>)
                                         }
                                         <td>
-                                            {entryActions(entry.id)}
+                                            {entryActions &&
+                                                entryActions(entry.id)}
                                         </td>
                                     </tr>
                             )

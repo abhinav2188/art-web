@@ -1,9 +1,11 @@
 import React from "react";
+import { handleFormDataChange } from "../utils/FormUtils";
 import SubmitButton from "./button/SubmitButton";
 import BoolSelectInput from "./input/BoolSelectInput";
 import DateInput from "./input/DateInput";
 import NumberInput from "./input/NumberInput";
 import SelectInput from "./input/SelectInput";
+import SelectInput2 from "./input/SelectInput2";
 import TextAreaInput from "./input/TextAreaInput";
 import TextInput from "./input/TextInput";
 import TextPassword from "./input/TextPassword";
@@ -19,7 +21,8 @@ const inputComponents = {
 }
 */
 
-const CustomInput = ({ field, value, handleChange, dropdowns }) => {
+
+const CustomInput = ({ field, value, handleChange, handleChange2, dropdowns }) => {
     switch (field.type) {
         case "text":
             return (
@@ -35,7 +38,9 @@ const CustomInput = ({ field, value, handleChange, dropdowns }) => {
             );
         case "dropdown":
             return (
-                <SelectInput label={field.label} name={field.name} onChange={handleChange} value={value} optionsList={dropdowns[field.dropdownType].values} />
+                <SelectInput2 label={field.label} name={field.name} onChange={handleChange2}
+                    optionsList={dropdowns[field.dropdownType].values}
+                    multiple={field.multiple} />
             );
         case "boolean":
             return (
@@ -53,13 +58,24 @@ const CustomInput = ({ field, value, handleChange, dropdowns }) => {
 }
 
 
-const Form = ({ fields, handleChange, onSubmit, formData, loading, dropdowns }) => {
+const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns }) => {
+
+    const handleChange = (event) => {
+        handleFormDataChange(event, setFormData);
+    }
+
+    const handleChange2 = (name, value) => {
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }))
+    }
 
     return (
         <form>
             {
                 fields.map(field =>
-                    <CustomInput field={field} value={formData[field.name]} handleChange={handleChange} dropdowns={dropdowns} />
+                    <CustomInput field={field} value={formData[field.name]} handleChange={handleChange} handleChange2={handleChange2} dropdowns={dropdowns} />
                 )
             }
             <SubmitButton onClick={(event) => {

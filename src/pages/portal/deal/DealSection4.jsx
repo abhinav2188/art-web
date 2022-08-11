@@ -159,7 +159,13 @@ const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
 
     return (
         editMode ?
-            <Form fields={formFields} formData={formData} dropdowns={dropdowns} handleChange={handleChange} onSubmit={handleSubmit} loading={loading} />
+            <Form
+                fields={formFields}
+                formData={formData}
+                dropdowns={dropdowns}
+                setFormData={setFormData}
+                onSubmit={handleSubmit}
+                loading={loading} />
             :
             <ViewDetails viewFields={viewFields} data={data} actions={actions} title="additional details" />
     );

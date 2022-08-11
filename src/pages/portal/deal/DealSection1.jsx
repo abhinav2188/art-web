@@ -6,15 +6,44 @@ import TextInput from "../../../components/input/TextInput";
 import { getDropdownValues } from "../../../services/dropdownService";
 import { handleFormDataChange } from "../../../utils/FormUtils";
 import ViewDetails from "../../../components/ViewDetails";
+import Form from "../../../components/Form";
+
+const formName = "PARTY_DEAL";
+
+const formFields = [
+    {
+        label: "Party Name",
+        name: "partyName",
+        type: "dropdown",
+        dropdownType: "PARTY"
+    },
+    {
+        label: "Deal Name",
+        name: "dealName",
+        type: "text"
+    }
+]
+
+const viewFields = [
+    {
+        label: "Party Name",
+        name: "partyName",
+    },
+    {
+        label: "Deal Name",
+        name: "dealName",
+    }
+]
+
+const initialData = {
+    partyName: "",
+    dealName: ""
+};
 
 const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
 
-    const formName = "PARTY_DEAL";
 
-    const [formData, setFormData] = useState({
-        partyName: "",
-        dealName: ""
-    });
+    const [formData, setFormData] = useState(initialData);
 
     const [dropdowns, setDropdowns] = useState({
         PARTY: {
@@ -31,15 +60,11 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
                 }
             }
         )
-    }, [])
+    }, []);
 
     let [loading, setLoading] = useState(false);
 
     let [editMode, setEditMode] = useState(edit);
-
-    function handleChange(event) {
-        handleFormDataChange(event, setFormData);
-    }
 
     function submitAddDealForm() {
         setLoading(true);
@@ -54,32 +79,20 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
             setLoading(false);
             setDealId(response.data.dealId);
             setEditMode(false);
-            // setFormData({
-            //     partyName: "",
-            //     dealName: ""
-            // })
         })
     }
-
-    const viewFields = [
-        {
-            label: "Deal Name",
-            name: "dealName"
-        },
-        {
-            label: "Party Name",
-            name: "partyName"
-        },
-    ]
 
     return (
 
         editMode ?
-            <form>
-                <SelectInput name="partyName" label="Party" value={formData.partyName} onChange={handleChange} optionsList={dropdowns.PARTY.values} />
-                <TextInput name="dealName" label="Deal Name" value={formData.dealName} onChange={handleChange} />
-                <SubmitButton onClick={submitAddDealForm} loading={loading} />
-            </form> :
+            <Form
+                fields={formFields}
+                formData={formData}
+                setFormData={setFormData}
+                dropdowns={dropdowns}
+                onSubmit={submitAddDealForm}
+                loading={loading} />
+            :
             <ViewDetails viewFields={viewFields} title="Deal" data={data} />
     );
 }

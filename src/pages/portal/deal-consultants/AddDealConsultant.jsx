@@ -38,11 +38,8 @@ const initialData = {
 };
 
 const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
-    const [formData, setFormData] = useState(initialData);
 
-    const handleChange = (event) => {
-        handleFormDataChange(event, setFormData);
-    }
+    const [formData, setFormData] = useState(initialData);
 
     const [dropdowns, setDropdowns] = useState({
         CONSULTANT_DESIGNATION: {
@@ -85,7 +82,13 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
     // </div>
 
     return (
-        <Form fields={formFields} formData={formData} dropdowns={dropdowns} handleChange={handleChange} onSubmit={handleSubmit} loading={loading} />
+        <Form
+            fields={formFields}
+            formData={formData}
+            dropdowns={dropdowns}
+            setFormData={setFormData}
+            onSubmit={handleSubmit}
+            loading={loading} />
     );
 
 }

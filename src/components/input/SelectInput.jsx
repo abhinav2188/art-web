@@ -10,7 +10,8 @@ const SelectInput = (props) => {
             disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
             invalid:border-red-500 invalid:text-red-600
             focus:invalid:border-red-500 focus:invalid:ring-red-500"
-                type="text" id={props.name} name={props.name} value={props.value} onChange={props.onChange} >
+                type="text" id={props.name} name={props.name} value={props.value} onChange={props.onChange}
+                multiple={props.multiple}>
                 <option disabled selected value=""> -- select an option -- </option>
                 {
                     props.optionsList.map((dval, i) =>

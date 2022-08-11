@@ -7,6 +7,7 @@ import DealSection3 from "./DealSection3";
 import DealSection4 from "./DealSection4";
 import DealOwners from "./DealOwners";
 import DealConsultants from "../deal-consultants/DealConsultants";
+import DealInteractions from "../deal-interactions/DealInteractions";
 
 
 const initialData = {
@@ -85,6 +86,7 @@ const UpdateDeal = ({ dealId }) => {
                 <DealOwners dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.authorizationDetails} />
                 <DealContacts dealId={dealId} />
                 <DealConsultants dealId={dealId} />
+                <DealInteractions dealId={dealId} add />
             </div> :
             <p>Select a deal from view section</p>
     );

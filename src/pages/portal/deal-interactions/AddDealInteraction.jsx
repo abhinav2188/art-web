@@ -1,47 +1,71 @@
 import React, { useEffect, useState } from "react";
 import Form from "../../../components/Form";
-import { addDealContact } from "../../../services/contactService";
+import { addDealInteraction } from "../../../services/dealInteractionsService";
 import { getDropdownValues } from "../../../services/dropdownService";
 import { handleFormDataChange } from "../../../utils/FormUtils";
 
-const formName = "DEAL_CONTACTS";
+const formName = "DEAL_INTERACTIONS";
+
+const initialData = {
+    meetingDate: "",
+    meetingLocation: "",
+    meetingDetails: "",
+    contacts: "",
+    consultants: "",
+    handlers: ""
+};
 
 const formFields = [
     {
-        label: "Full Name",
-        name: "name",
+        label: "Meeting Date",
+        name: "meetingDate",
+        type: "date"
+    },
+    {
+        label: "Meeting Location",
+        name: "meetingLocation",
         type: "text"
     },
     {
-        label: "Email",
-        name: "email",
-        type: "text"
-    },
-    {
-        label: "Mobile",
-        name: "mobile",
-        type: "text"
-    },
-    {
-        label: "Designation",
-        name: "designation",
+        label: "Contacts",
+        name: "contacts",
         type: "dropdown",
-        dropdownType: "CONTACT_DESIGNATION"
+        dropdownType: "MEETING_CONTACT",
+        multiple: true
+    },
+    {
+        label: "Consultants",
+        name: "consultants",
+        type: "dropdown",
+        dropdownType: "MEETING_CONSULTANT",
+        multiple: true
+    },
+    {
+        label: "Handlers",
+        name: "handlers",
+        type: "dropdown",
+        dropdownType: "MEETING_HANDLER",
+    },
+    {
+        label: "Meeting Details",
+        name: "meetingDetails",
+        type: "text"
     }
-]
+];
 
-const initialData = {
-    name: "",
-    email: "",
-    mobile: "",
-    designation: ""
-};
 
-const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
+const AddDealInteraction = ({ dealId, addInteractionToView, setDisplay, reload }) => {
+
     const [formData, setFormData] = useState(initialData);
 
     const [dropdowns, setDropdowns] = useState({
-        CONTACT_DESIGNATION: {
+        MEETING_CONTACT: {
+            values: []
+        },
+        MEETING_CONSULTANT: {
+            values: []
+        },
+        MEETING_HANDLER: {
             values: []
         }
     });
@@ -50,22 +74,21 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
         getDropdownValues(null, formName, dealId).then(
             response => {
                 if (response) {
-                    console.log(response.dropdownKeyDetailsMap);
                     setDropdowns(response.dropdownKeyDetailsMap)
                 }
             }
         )
-    }, [])
+    }, [reload])
 
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = () => {
         setLoading(true);
-        addDealContact(dealId, formData).then(
+        addDealInteraction(dealId, formData).then(
             response => {
                 console.log("handlesubmit", response);
                 if (response) {
-                    addContactToView(response.data);
+                    addInteractionToView(response.data);
                 }
                 setFormData(initialData);
                 setDisplay(false);
@@ -73,12 +96,6 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
             }
         )
     }
-
-    // let [editMode, setEditMode] = useState(true);
-
-    // const actions = <div>
-    //     <button className="bg-green-500 rounded-full px-1" onClick={() => setEditMode(true)}>Edit</button>
-    // </div>
 
     return (
         <Form
@@ -92,4 +109,4 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
 
 }
 
-export default AddDealContact;
+export default AddDealInteraction;

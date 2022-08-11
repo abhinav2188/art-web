@@ -18,10 +18,6 @@ const DealOwners = ({ dealId, setDealDetails, data }) => {
         }
     ]
 
-    const handleChange = (event) => {
-        handleFormDataChange(event, setFormData);
-    }
-
     let [addProgress, setAddProgress] = useState(false);
 
     function addOwner() {
@@ -90,7 +86,7 @@ const DealOwners = ({ dealId, setDealDetails, data }) => {
                 <Form
                     fields={formFields}
                     formData={formData}
-                    handleChange={handleChange}
+                    setFormData={setFormData}
                     onSubmit={addOwner}
                     loading={addProgress} />
             }
