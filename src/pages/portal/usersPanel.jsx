@@ -14,7 +14,7 @@ const UsersPanel = (props) => {
 
     useEffect(() => {
         getAllUsers(pageNo).then(data => {
-            console.log("data:" + data);
+            console.log("data:", data);
             if (data) setUsersData(data);
         })
     }, [pageNo]);

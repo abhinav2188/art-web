@@ -48,5 +48,4 @@ async function registerUser(email, password, mobile) {
         })
 }
 
-
 export { loginUser, registerUser };

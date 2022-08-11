@@ -1,8 +1,8 @@
 import instance from "../axiosInstance";
 
-export async function addDealContact(dealId, data) {
-    console.log("addDealContact()");
-    const path = "/ext/contacts/" + dealId;
+export async function addDealConsultant(dealId, data) {
+    console.log("addDealConsultant()");
+    const path = "/ext/consultants/" + dealId;
     return instance.post(path, data).then(
         response => {
             console.log("response data:", response.data);
@@ -18,9 +18,9 @@ export async function addDealContact(dealId, data) {
         })
 }
 
-export async function getAllDealContacts(dealId, pageNo) {
-    console.log("getAllDeals()");
-    const path = "/ext/contacts/" + dealId;
+export async function getAllDealConsultants(dealId, pageNo) {
+    console.log("getAllDealConsultants()");
+    const path = "/ext/consultants/" + dealId;
     return instance.get(path, {
         params: {
             pageNo
@@ -39,9 +39,9 @@ export async function getAllDealContacts(dealId, pageNo) {
         })
 }
 
-export async function deleteDealContact(contactId) {
-    console.log("deleteDealContact()");
-    const path = "/ext/contacts/" + contactId;
+export async function deleteDealConsultant(consultantId) {
+    console.log("deleteDealConsultant()");
+    const path = "/ext/consultants/" + consultantId;
     return instance.delete(path)
         .then(
             response => {

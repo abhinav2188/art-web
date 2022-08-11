@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { Navigate, NavLink, Outlet, Routes } from "react-router-dom";
-import UserContext from "../context/UserContext";
+import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Portal = (props) => {
-    const userContext = useContext(UserContext);
     return (
         <div className="flex flex-col w-full">
             <div className="flex gap-2 p-2 items-center shadow-sm">
