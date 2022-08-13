@@ -6,6 +6,7 @@ import DealSection4 from "./DealSection4";
 import DealContacts from "../deal-contacts/DealContacts";
 import DealOwners from "./DealOwners";
 import DealConsultants from "../deal-consultants/DealConsultants";
+import DealInteractions from "../deal-interactions/DealInteractions";
 
 const AddDeal = (props) => {
 
@@ -84,6 +85,7 @@ const AddDeal = (props) => {
                     <DealOwners dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.authorizationDetails} />
                     <DealContacts dealId={dealId} />
                     <DealConsultants dealId={dealId} />
+                    <DealInteractions dealId={dealId} />
                 </div>
             }
         </div>

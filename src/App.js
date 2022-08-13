@@ -10,6 +10,7 @@ import DealsPanel from './pages/portal/dealsPanel';
 import PartyPanel from './pages/portal/partyPanel';
 import { AxiosInterceptor } from './axiosInstance';
 import Forbidden from './pages/portal/forbidden';
+import AddBrochure from './pages/portal/brochures/Brochures';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                   <Route path='deals' element={<DealsPanel />}></Route>
                   <Route path='dropdowns' element={<DropdownsPanel />}></Route>
                   <Route path='party' element={<PartyPanel />} />
+                  <Route path='brochures' element={<AddBrochure />} />
                   <Route path='forbidden' element={<Forbidden />}></Route>
                 </Route>
                 <Route path='login' element={<Login />}></Route>

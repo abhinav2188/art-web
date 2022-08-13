@@ -3,6 +3,7 @@ import { handleFormDataChange } from "../utils/FormUtils";
 import SubmitButton from "./button/SubmitButton";
 import BoolSelectInput from "./input/BoolSelectInput";
 import DateInput from "./input/DateInput";
+import FileInput from "./input/FileInput";
 import NumberInput from "./input/NumberInput";
 import SelectInput from "./input/SelectInput";
 import SelectInput2 from "./input/SelectInput2";
@@ -54,11 +55,15 @@ const CustomInput = ({ field, value, handleChange, handleChange2, dropdowns }) =
             return (
                 <NumberInput label={field.label} name={field.name} onChange={handleChange} value={value} />
             );
+        case "file":
+            return (
+                <FileInput label={field.label} name={field.name} onChange={handleChange2} />
+            );
     }
 }
 
 
-const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns }) => {
+const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns, multipart }) => {
 
     const handleChange = (event) => {
         handleFormDataChange(event, setFormData);
@@ -72,7 +77,7 @@ const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns }) =
     }
 
     return (
-        <form>
+        <form encType={multipart && "multipart/form-data"}>
             {
                 fields.map(field =>
                     <CustomInput field={field} value={formData[field.name]} handleChange={handleChange} handleChange2={handleChange2} dropdowns={dropdowns} />
