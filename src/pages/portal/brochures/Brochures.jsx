@@ -1,86 +1,77 @@
-import React, { useEffect, useState } from "react";
-import SubmitButton from "../../../components/button/SubmitButton";
-import Form from "../../../components/Form";
-import FileInput from "../../../components/input/FileInput";
-import TextInput from "../../../components/input/TextInput";
-import { addBrochure } from "../../../services/brochureService";
 
-const formFields = [
-    {
-        label: "File",
-        name: "file",
-        type: "file"
-    },
+import React, { useEffect, useState } from "react";
+import ActionButton from "../../../components/button/ActionButton";
+import Table from "../../../components/Table";
+import { getAllBrochures } from "../../../services/brochureService";
+import AddBrochure from "./AddBrochure";
+
+const viewFields = [
     {
         label: "Brochure Name",
-        name: "brochureName",
-        type: "text"
-    }
+        name: "brochureName"
+    },
+    {
+        label: "File URL",
+        name: "filePath",
+    },
+    {
+        label: "Active",
+        name: "isActive"
+    },
 ]
 
-const initialData = {
-    file: "",
-    brochureName: "",
-};
+const Brochures = () => {
 
-const AddBrochure = ({ addBrochureToView, setDisplay }) => {
+    const [data, setData] = useState({
+        totalCount: 0,
+        totalPageCount: 0,
+        brochures: []
+    });
 
-    const [formData, setFormData] = useState(initialData);
+    const [pageNo, setPageNo] = useState(0);
 
-    const [loading, setLoading] = useState(false);
-
-    const handleSubmit = (event) => {
-        // event.preventDefault();
-        const formDataa = new FormData();
-        formDataa.append("file", formData.file);
-        formDataa.append("brochureName", formData.brochureName);
-        setLoading(true);
-        addBrochure(formDataa).then(
-            response => {
-                console.log("handlesubmit", response);
-                if (response) {
-                    // addBrochureToView(response.data);
-                }
-                setFormData(initialData);
-                // setDisplay(false);
-                setLoading(false);
+    useEffect(() => {
+        getAllBrochures(pageNo).then(response => {
+            if (response) {
+                setData(response.data);
             }
-        )
-    }
+        })
+    }, [pageNo])
 
-    function handleChange(e) {
-        let name = e.target.name;
-        let value = name == "file" ? e.target.files[0] : e.target.value;
-        setFormData(prevData => ({
-            ...prevData,
-            [name]: value
+    function addBrochureToView(brochure) {
+        setData(prevState => ({
+            ...prevState,
+            brochures: [
+                brochure,
+                ...prevState.brochures
+            ]
         }));
     }
 
-    // let [editMode, setEditMode] = useState(true);
+    const [viewAddForm, setViewAddForm] = useState(false);
 
-    // const actions = <div>
-    //     <button className="bg-green-500 rounded-full px-1" onClick={() => setEditMode(true)}>Edit</button>
-    // </div>
+    const tableActions = <div>
+        <button className="bg-green-600 px-1" onClick={() => setViewAddForm(true)} >add brochure</button>
+    </div>
+
 
     return (
-
-        <Form
-            fields={formFields}
-            formData={formData}
-            setFormData={setFormData}
-            onSubmit={handleSubmit}
-            loading={loading}
-            multipart
-        />
-
-        // <form encType="multipart/form-data">
-        //     <input type="file" name="file" onChange={handleChange} />
-        //     <TextInput label="Brochure Name" name="brochureName" onChange={handleChange} />
-        //     <SubmitButton onClick={handleSubmit} loading={loading} />
-        // </form>
+        <div>
+            <Table
+                viewFields={viewFields}
+                pageNo={pageNo}
+                setPageNo={setPageNo}
+                totalEntries={data.totalCount}
+                totalPages={data.totalPageCount}
+                entriesList={data.brochures}
+                title="Brochures"
+                tableActions={tableActions}
+            />
+            {viewAddForm && <AddBrochure addBrochureToView={addBrochureToView} display={viewAddForm} setDisplay={setViewAddForm} />}
+        </div>
     );
+
 
 }
 
-export default AddBrochure;
+export default Brochures;
