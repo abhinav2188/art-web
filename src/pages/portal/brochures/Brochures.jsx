@@ -56,7 +56,7 @@ const Brochures = () => {
 
 
     return (
-        <div>
+        <div className="flex flex-col w-full">
             <Table
                 viewFields={viewFields}
                 pageNo={pageNo}

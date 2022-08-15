@@ -3,11 +3,13 @@ import PageButton from "./button/PageButton";
 
 const Table = ({ viewFields, entriesList, totalEntries, totalPages, pageNo, setPageNo, entryActions, title, tableActions }) => {
     return (
-        <div className="flex flex-col border">
+        <div className="flex flex-col border overflow-auto">
             <div className="flex justify-between">
                 <p className="uppercase">{title}</p>
-                <p>Total Entries: {totalEntries}</p>
-                <PageButton pageNo={pageNo} setPageNo={setPageNo} totalPagesCount={totalPages} />
+                {!!totalEntries && <p>Total Entries: {totalEntries}</p>}
+                {!!totalPages &&
+                    <PageButton pageNo={pageNo} setPageNo={setPageNo} totalPagesCount={totalPages} />
+                }
                 {tableActions}
             </div>
             {
@@ -17,7 +19,7 @@ const Table = ({ viewFields, entriesList, totalEntries, totalPages, pageNo, setP
                         <tr className="bg-gray-600 text-white">
                             {
                                 viewFields.map((viewField) =>
-                                    <td key={viewField.label}>{viewField.name}</td>
+                                    <td key={viewField.label}>{viewField.label}</td>
                                 )
                             }
                             <td>Actions</td>

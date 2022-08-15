@@ -45,15 +45,6 @@ const AddBrochure = ({ addBrochureToView, setDisplay }) => {
         )
     }
 
-    function handleChange(e) {
-        let name = e.target.name;
-        let value = name == "file" ? e.target.files[0] : e.target.value;
-        setFormData(prevData => ({
-            ...prevData,
-            [name]: value
-        }));
-    }
-
     return (
 
         <Form

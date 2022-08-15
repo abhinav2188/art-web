@@ -34,16 +34,16 @@ const DealsPanel = (props) => {
 
     const [currentDealId, setCurrentDealId] = useState(null);
 
-    const [section, setSection] = useState("addDeal");
+    const [section, setSection] = useState("viewDeals");
 
     const dealSections = [
         {
-            name: "addDeal",
-            component: <AddDeal addDealToView={addDealToView} />
-        },
-        {
             name: "viewDeals",
             component: <ViewDeals data={dealsData} pageNo={pageNo} setPageNo={setPageNo} setCurrentDealId={setCurrentDealId} setSection={setSection} />
+        },
+        {
+            name: "addDeal",
+            component: <AddDeal addDealToView={addDealToView} />
         },
         {
             name: "updateDeal",
