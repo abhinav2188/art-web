@@ -8,23 +8,23 @@ const FileInput = (props) => {
         imagePreviewUrl: ""
     })
 
-    function handleChange(e) {
-        let f = e.target.files[0];
-        props.onChange(props.name, f);
-    }
-
     // function handleChange(e) {
-    //     let reader = new FileReader();
-    //     let file = e.target.files[0];
-    //     reader.onloadend = () => {
-    //         setFileData({
-    //             file: file,
-    //             imagePreviewUrl: reader.result
-    //         });
-    //     props.onChange(props.name, file);
-    //     }
-    //     reader.readAsDataURL(file);
+    //     let f = e.target.files[0];
+    //     props.onChange(props.name, f);
     // }
+
+    function handleChange(e) {
+        let reader = new FileReader();
+        let file = e.target.files[0];
+        reader.onloadend = () => {
+            // setFileData({
+            //     file: file,
+            //     imagePreviewUrl: reader.result
+            // });
+            props.onChange(props.name, file);
+        }
+        reader.readAsDataURL(file);
+    }
 
     return (
         <label htmlFor={props.name} className="flex flex-col w-full">

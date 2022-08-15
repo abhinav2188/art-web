@@ -1,47 +1,42 @@
 import React, { useEffect, useState } from "react";
 import Form from "../../../components/Form";
-import { addDealConsultant } from "../../../services/consultantService";
 import { getDropdownValues } from "../../../services/dropdownService";
+import { addDealQuery } from "../../../services/queryService";
 
-const formName = "DEAL_CONSULTANTS";
+const formName = "BROCHURES_QUERY";
+
+const initialData = {
+    brochures: "",
+    recipients: ""
+};
 
 const formFields = [
     {
-        label: "Full Name",
-        name: "name",
-        type: "text"
-    },
-    {
-        label: "Email",
-        name: "email",
-        type: "text"
-    },
-    {
-        label: "Mobile",
-        name: "mobile",
-        type: "text"
-    },
-    {
-        label: "Designation",
-        name: "designation",
+        label: "Recipients",
+        name: "recipients",
         type: "dropdown",
-        dropdownType: "CONSULTANT_DESIGNATION"
+        dropdownType: "DEAL_RECIPIENTS",
+        multiple: true
+    },
+    {
+        label: "Brochures",
+        name: "brochures",
+        type: "dropdown",
+        dropdownType: "BROCHURES_TYPE",
+        multiple: true
     }
-]
+];
 
-const initialData = {
-    name: "",
-    email: "",
-    mobile: "",
-    designation: ""
-};
 
-const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
+const AddDealQuery = ({ dealId, setDisplay }) => {
 
     const [formData, setFormData] = useState(initialData);
 
     const [dropdowns, setDropdowns] = useState({
-        CONSULTANT_DESIGNATION: {
+        BROCHURES_TYPE: {
+            values: []
+        },
+        DEAL_RECIPIENTS: {
             values: []
         }
     });
@@ -50,7 +45,6 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
         getDropdownValues(null, formName, dealId).then(
             response => {
                 if (response) {
-                    console.log(response.dropdownKeyDetailsMap);
                     setDropdowns(response.dropdownKeyDetailsMap)
                 }
             }
@@ -61,11 +55,11 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
 
     const handleSubmit = () => {
         setLoading(true);
-        addDealConsultant(dealId, formData).then(
+        addDealQuery(dealId, formData).then(
             response => {
                 console.log("handlesubmit", response);
                 if (response) {
-                    addConsultantToView(response.data);
+                    // addInteractionToView(response.data);
                 }
                 setFormData(initialData);
                 setDisplay(false);
@@ -73,12 +67,6 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
             }
         )
     }
-
-    // let [editMode, setEditMode] = useState(true);
-
-    // const actions = <div>
-    //     <button className="bg-green-500 rounded-full px-1" onClick={() => setEditMode(true)}>Edit</button>
-    // </div>
 
     return (
         <Form
@@ -92,4 +80,4 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
 
 }
 
-export default AddDealConsultant;
+export default AddDealQuery;

@@ -8,6 +8,7 @@ import DealSection4 from "./DealSection4";
 import DealOwners from "./DealOwners";
 import DealConsultants from "../deal-consultants/DealConsultants";
 import DealInteractions from "../deal-interactions/DealInteractions";
+import DealQuery from "../dealQuery/DealQuery";
 
 
 const initialData = {
@@ -80,6 +81,7 @@ const UpdateDeal = ({ dealId }) => {
         dealId ?
             <div className="flex flex-col gap-8 p-8">
                 <DealSection1 setDealDetails={setDealDetails} data={dealDetails.cardDetails} />
+                <DealQuery dealId={dealId} />
                 <DealSection2 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.productDetails} />
                 <DealSection3 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.commonDetails} />
                 <DealSection4 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.additionalDetails} />
