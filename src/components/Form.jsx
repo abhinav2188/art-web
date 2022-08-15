@@ -37,11 +37,17 @@ const CustomInput = ({ field, value, handleChange, handleChange2, dropdowns }) =
             return (
                 <DateInput label={field.label} name={field.name} onChange={handleChange} value={value} />
             );
+        case "dropdown2":
+            return (
+                <SelectInput label={field.label} name={field.name} onChange={handleChange}
+                    optionsList={dropdowns[field.dropdownType].values}
+                    value={value} />
+            );
         case "dropdown":
             return (
                 <SelectInput2 label={field.label} name={field.name} onChange={handleChange2}
                     optionsList={dropdowns[field.dropdownType].values}
-                    multiple={field.multiple} />
+                    value={value} multiple={field.multiple} />
             );
         case "boolean":
             return (

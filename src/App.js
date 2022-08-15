@@ -4,13 +4,13 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Portal from './pages/portal';
 import UserProvider from "./context/UserProvider";
-import UsersPanel from './pages/portal/usersPanel';
 import DropdownsPanel from './pages/portal/dropdown/dropdownPanel';
-import DealsPanel from './pages/portal/dealsPanel';
-import PartyPanel from './pages/portal/partyPanel';
 import { AxiosInterceptor } from './axiosInstance';
 import Forbidden from './pages/portal/forbidden';
 import Brochures from './pages/portal/brochures/Brochures';
+import UsersPanel from './pages/portal/userPanel/usersPanel';
+import DealsPanel from './pages/portal/deal/dealsPanel';
+import PartyPanel from './pages/portal/party/partyPanel';
 
 
 function App() {

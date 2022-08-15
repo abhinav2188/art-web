@@ -1,71 +1,93 @@
 import React from "react";
 import ActionButton from "../../../components/button/ActionButton";
 import PageButton from "../../../components/button/PageButton";
+import Table from "../../../components/Table";
 
 const viewFields = [
     {
-        display: "Id",
-        field: "dealId"
+        label: "Id",
+        name: "dealId"
     },
     {
-        display: "Deal Name",
-        field: "dealName"
+        label: "Deal Name",
+        name: "dealName"
     },
     {
-        display: "Party Name",
-        field: "partyName"
+        label: "Party Name",
+        name: "partyName"
     },
     {
-        display: "Deal Stage",
-        field: "dealStage"
+        label: "Deal Stage",
+        name: "dealStage"
     },
     {
-        display: "Opening Date",
-        field: "openingDate"
+        label: "Opening Date",
+        name: "openingDate"
     },
     {
-        display: "Active",
-        field: "isActive"
+        label: "Active",
+        name: "isActive"
     },
 ]
 
-const ViewDeals = (props) => {
+
+const ViewDeals = ({ pageNo, setPageNo, data, setSection, setCurrentDealId }) => {
+    const entryActions = (deal) => {
+        return (
+            <div>
+                <ActionButton onClick={() => {
+                    setCurrentDealId(deal.dealId);
+                    setSection("updateDeal");
+                }}>Update</ActionButton>
+            </div>
+        );
+    }
     return (
-        <div>
-            <p>Total Deals: {props.data.totalCount}</p>
-            <PageButton pageNo={props.pageNo} setPageNo={props.setPageNo} totalPagesCount={props.data.totalPages} />
-            <table>
-                <thead>
-                    <tr className="bg-gray-600 text-white">
-                        {
-                            viewFields.map((viewField) =>
-                                <td key={viewField.display}>{viewField.display}</td>
-                            )
-                        }
-                        <td>Actions</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        props.data.deals.map(
-                            (deal, i) =>
-                                <tr key={i}>
-                                    {
-                                        viewFields.map(viewField =>
-                                            <td>{String(deal[viewField.field])}</td>)
-                                    }
-                                    <td>
-                                        <ActionButton onClick={() => {
-                                            props.setCurrentDealId(deal.dealId);
-                                            props.setSection("updateDeal");
-                                        }}>Update</ActionButton>
-                                    </td>
-                                </tr>
-                        )
-                    }
-                </tbody>
-            </table>
-        </div>
+        <Table
+            viewFields={viewFields}
+            pageNo={pageNo}
+            setPageNo={setPageNo}
+            totalEntries={data.totalCount}
+            totalPages={data.totalPages}
+            entriesList={data.deals}
+            title="Deals"
+            entryActions={entryActions}
+        />
+        // <div>
+        //     <p>Total Deals: {props.data.totalCount}</p>
+        //     <PageButton pageNo={props.pageNo} setPageNo={props.setPageNo} totalPagesCount={props.data.totalPages} />
+        //     <table>
+        //         <thead>
+        //             <tr className="bg-gray-600 text-white">
+        //                 {
+        //                     viewFields.map((viewField) =>
+        //                         <td key={viewField.label}>{viewField.display}</td>
+        //                     )
+        //                 }
+        //                 <td>Actions</td>
+        //             </tr>
+        //         </thead>
+        //         <tbody>
+        //             {
+        //                 props.data.deals.map(
+        //                     (deal, i) =>
+        //                         <tr key={i}>
+        //                             {
+        //                                 viewFields.map(viewField =>
+        //                                     <td>{String(deal[viewField.field])}</td>)
+        //                             }
+        //                             <td>
+        //                                 <ActionButton onClick={() => {
+        //                                     props.setCurrentDealId(deal.dealId);
+        //                                     props.setSection("updateDeal");
+        //                                 }}>Update</ActionButton>
+        //                             </td>
+        //                         </tr>
+        //                 )
+        //             }
+        //         </tbody>
+        //     </table>
+        // </div>
     );
 }
 

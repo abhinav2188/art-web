@@ -6,6 +6,7 @@ let instance = axios.create({
     baseURL: "http://localhost:8080/api"
 })
 
+
 instance.interceptors.request.use(
     (req) => {
         if (window.sessionStorage.getItem("userDetails")) {

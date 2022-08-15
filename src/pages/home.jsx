@@ -3,7 +3,6 @@ import { Outlet, Link, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import UserContext from "../context/UserContext";
 import { validateToken } from "../services/tokenService";
-import ExportExcel from "./portal/ExportExcel";
 
 const Home = () => {
     const userContext = useContext(UserContext);
@@ -31,7 +30,6 @@ const Home = () => {
     return (
         <div className="w-screen h-screen flex flex-col">
             <Navbar />
-            <ExportExcel />
             <Outlet />
             <footer className="flex items-center justify-center mt-16">
                 copyright ART

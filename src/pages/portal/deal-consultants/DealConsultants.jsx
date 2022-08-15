@@ -85,8 +85,8 @@ const DealConsultants = ({ dealId, add }) => {
     }
 
 
-    const entryActions = (consultantId) => <div>
-        <DeleteConsultantButton consultantId={consultantId} />
+    const entryActions = (consultant) => <div>
+        <DeleteConsultantButton consultantId={consultant.id} />
     </div>
 
     return (

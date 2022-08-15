@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import Sections from "../../components/Sections";
-import { getAllParty } from "../../services/partyService";
+import Sections from "../../../components/Sections";
+import { getAllParty } from "../../../services/partyService";
 import AddParty from "./AddParty";
 import UpdateParty from "./UpdateParty";
 import ViewParty from "./ViewParty";

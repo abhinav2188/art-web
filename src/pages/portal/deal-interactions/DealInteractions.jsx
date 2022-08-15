@@ -97,8 +97,8 @@ const DealInteractions = ({ dealId, add }) => {
     }
 
 
-    const entryActions = (interactionId) => <div>
-        <DeleteInteractionButton interactionId={interactionId} />
+    const entryActions = (interaction) => <div>
+        <DeleteInteractionButton interactionId={interaction.id} />
     </div>
 
     return (

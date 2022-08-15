@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Sections from "../../components/Sections";
-import { getAllDeals } from "../../services/dealService";
-import AddDeal from "./deal/AddDeal";
-import UpdateDeal from "./deal/UpdateDeal";
-import ViewDeals from "./deal/ViewDeals";
+import Sections from "../../../components/Sections";
+import { getAllDeals } from "../../../services/dealService";
+import AddDeal from "./AddDeal";
+import UpdateDeal from "./UpdateDeal";
+import ViewDeals from "./ViewDeals";
 
 const DealsPanel = (props) => {
 

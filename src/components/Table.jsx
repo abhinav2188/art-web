@@ -34,7 +34,7 @@ const Table = ({ viewFields, entriesList, totalEntries, totalPages, pageNo, setP
                                         }
                                         <td>
                                             {entryActions &&
-                                                entryActions(entry.id)}
+                                                entryActions(entry)}
                                         </td>
                                     </tr>
                             )

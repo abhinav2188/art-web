@@ -5,6 +5,97 @@ import { getDropdownValues } from "../../../services/dropdownService";
 import { handleFormDataChange } from "../../../utils/FormUtils";
 import ViewDetails from "../../../components/ViewDetails";
 
+const formFields = [
+    {
+        label: "Deal Stage",
+        name: "dealStage",
+        type: "dropdown",
+        dropdownType: "CURRENT_DEAL_STAGE"
+    },
+    {
+        label: "Active",
+        name: "isActive",
+        type: "boolean",
+    },
+    {
+        label: "Deal Value in Cr",
+        name: "dealValueInCr",
+        type: "number",
+    },
+    {
+        label: "Payment Terms",
+        name: "paymentTerms",
+        type: "dropdown",
+        dropdownType: "PAYMENT_TERMS"
+    },
+    {
+        label: "Payment Factor",
+        name: "paymentFactor",
+        type: "number"
+    },
+    {
+        label: "Owner Focus",
+        name: "ownerFocus",
+        type: "number"
+    },
+    {
+        label: "Deal Probability",
+        name: "dealProbability",
+        type: "number"
+    },
+    {
+        label: "Expected Turnover",
+        name: "expectedTurnover",
+        type: "number"
+    },
+    {
+        label: "Proximity From Base",
+        name: "proximityFromBase",
+        type: "text"
+    },
+]
+
+const viewFields = [
+    {
+        label: "Deal Stage",
+        name: "dealStage",
+    },
+    {
+        label: "Active",
+        name: "isActive",
+    },
+    {
+        label: "Deal Value in Cr",
+        name: "dealValueInCr",
+    },
+    {
+        label: "Payment Terms",
+        name: "paymentTerms",
+    },
+    {
+        label: "Payment Factor",
+        name: "paymentFactor",
+    },
+    {
+        label: "Owner Focus",
+        name: "ownerFocus",
+    },
+    {
+        label: "Deal Probability",
+        name: "dealProbability",
+    },
+    {
+        label: "Expected Turnover",
+        name: "expectedTurnover",
+    },
+    {
+        label: "Proximity From Base",
+        name: "proximityFromBase",
+    },
+]
+
+const formName = "DEAL_ADDITIONAL";
+
 const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
 
     const [formData, setFormData] = useState({
@@ -19,7 +110,11 @@ const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
         proximityFromBase: ""
     });
 
-    const formName = "DEAL_ADDITIONAL";
+    useEffect(() => {
+        if (!!data) {
+            setFormData(data);
+        }
+    }, [data])
 
     const [dropdowns, setDropdowns] = useState({
         CURRENT_DEAL_STAGE: {
@@ -30,104 +125,10 @@ const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
         }
     });
 
-    const formFields = [
-        {
-            label: "Deal Stage",
-            name: "dealStage",
-            type: "dropdown",
-            dropdownType: "CURRENT_DEAL_STAGE"
-        },
-        {
-            label: "Active",
-            name: "isActive",
-            type: "boolean",
-        },
-        {
-            label: "Deal Value in Cr",
-            name: "dealValueInCr",
-            type: "number",
-        },
-        {
-            label: "Payment Terms",
-            name: "paymentTerms",
-            type: "dropdown",
-            dropdownType: "PAYMENT_TERMS"
-        },
-        {
-            label: "Payment Factor",
-            name: "paymentFactor",
-            type: "number"
-        },
-        {
-            label: "Owner Focus",
-            name: "ownerFocus",
-            type: "number"
-        },
-        {
-            label: "Deal Probability",
-            name: "dealProbability",
-            type: "number"
-        },
-        {
-            label: "Expected Turnover",
-            name: "expectedTurnover",
-            type: "number"
-        },
-        {
-            label: "Proximity From Base",
-            name: "proximityFromBase",
-            type: "text"
-        },
-    ]
-
-    const viewFields = [
-        {
-            label: "Deal Stage",
-            name: "dealStage",
-        },
-        {
-            label: "Active",
-            name: "isActive",
-        },
-        {
-            label: "Deal Value in Cr",
-            name: "dealValueInCr",
-        },
-        {
-            label: "Payment Terms",
-            name: "paymentTerms",
-        },
-        {
-            label: "Payment Factor",
-            name: "paymentFactor",
-        },
-        {
-            label: "Owner Focus",
-            name: "ownerFocus",
-        },
-        {
-            label: "Deal Probability",
-            name: "dealProbability",
-        },
-        {
-            label: "Expected Turnover",
-            name: "expectedTurnover",
-        },
-        {
-            label: "Proximity From Base",
-            name: "proximityFromBase",
-        },
-    ]
-
-    const handleChange = (event) => {
-        handleFormDataChange(event, setFormData);
-    }
-
     useEffect(() => {
         getDropdownValues(null, formName, null).then(
             response => {
                 if (response) {
-                    console.log(response.dropdownKeyDetailsMap);
                     setDropdowns(response.dropdownKeyDetailsMap)
                 }
             }

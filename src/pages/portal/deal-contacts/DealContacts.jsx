@@ -85,8 +85,8 @@ const DealContacts = ({ dealId, add }) => {
     }
 
 
-    const entryActions = (contactId) => <div>
-        <DeleteContactButton contactId={contactId} />
+    const entryActions = (contact) => <div>
+        <DeleteContactButton contactId={contact.id} />
     </div>
 
     return (

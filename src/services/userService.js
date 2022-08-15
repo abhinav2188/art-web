@@ -10,7 +10,7 @@ export async function getAllUsers(pageNo) {
     }).then(
         response => {
             console.log("response data:", response.data);
-            return response.data.data;
+            return response.data;
         }
     )
         .catch(error => {

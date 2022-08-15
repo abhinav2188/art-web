@@ -83,6 +83,12 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
         roadDetails: ""
     });
 
+    useEffect(() => {
+        if (!!data) {
+            setFormData(data);
+        }
+    }, [data])
+
     const [dropdowns, setDropdowns] = useState({
         PRODUCT_TYPE: {
             values: []
