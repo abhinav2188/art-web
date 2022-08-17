@@ -117,6 +117,10 @@ const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
         }
     }, [data])
 
+    const [flag, setFlag] = useState(true);
+
+    const reloadDropdown = () => setFlag(f => !f);
+
     const [dropdowns, setDropdowns] = useState({
         CURRENT_DEAL_STAGE: {
             values: []
@@ -134,7 +138,7 @@ const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
                 }
             }
         )
-    }, [])
+    }, [flag])
 
     const [loading, setLoading] = useState(false);
 
@@ -168,7 +172,9 @@ const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
                 dropdowns={dropdowns}
                 setFormData={setFormData}
                 onSubmit={handleSubmit}
-                loading={loading} />
+                loading={loading}
+                reloadDropdown={reloadDropdown}
+            />
             :
             <ViewDetails viewFields={viewFields} data={data} actions={actions} title="additional details" />
     );

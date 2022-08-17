@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Spinner from "../Spinner";
-import { Add, Delete, Edit } from "../../svgs/svgIcons";
+import { Add, Delete, Edit, Reload } from "../../svgs/svgIcons";
 
 
 const buttons = {
-    add: <div className="border border-green-500 rounded h-6 w-6 text-green-500">{Add}</div>,
-    edit: <div className="border border-yellow-800 rounded h-6 w-6 text-yellow-800 hover:border-yellow-600">{Edit}</div>,
-    delete: <div className="border border-red-800 rounded h-6 w-6 text-red-800">{Delete}</div>,
+    add: <div className="border border-green-800 rounded h-6 w-6 text-green-800 hover:border-green-500">{Add}</div>,
+    edit: <div className="border border-yellow-800 rounded h-6 w-6 text-yellow-800 hover:border-yellow-500">{Edit}</div>,
+    delete: <div className="border border-red-800 rounded h-6 w-6 text-red-800 hover:border-red-500">{Delete}</div>,
+    reload: <div className="border border-sky-800 rounded h-6 w-6 text-sky-800 hover:border-sky-500">{Reload}</div>,
 }
 
 

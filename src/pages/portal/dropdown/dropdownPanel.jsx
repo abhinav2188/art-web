@@ -82,7 +82,7 @@ const DropdownsPanel = (props) => {
         }))
     }
 
-    const entryActions = (dropdownValue) => <div>
+    const entryActions = (dropdownValue) => <div className="flex">
         <DeleteDropdownValue dropdownId={dropdownValue.id} removeFromView={removeFromView} />
     </div>
 

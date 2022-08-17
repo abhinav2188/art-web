@@ -51,6 +51,10 @@ const AddParty = ({ addPartyToView }) => {
         }
     });
 
+    const [flag, setFlag] = useState(true);
+
+    const reloadDropdown = () => setFlag(f => !f);
+
     useEffect(() => {
         getDropdownValues(null, "PARTY_DETAILS", null).then(
             response => {
@@ -59,7 +63,7 @@ const AddParty = ({ addPartyToView }) => {
                 }
             }
         )
-    }, [])
+    }, [flag])
 
     let [loading, setLoading] = useState(false);
 
@@ -85,6 +89,7 @@ const AddParty = ({ addPartyToView }) => {
                 dropdowns={dropdowns}
                 onSubmit={handleSubmit}
                 loading={loading}
+                reloadDropdown={reloadDropdown}
             />
         </div>
     );

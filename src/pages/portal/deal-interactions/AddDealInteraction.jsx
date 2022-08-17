@@ -70,6 +70,10 @@ const AddDealInteraction = ({ dealId, addInteractionToView, setDisplay, reload }
         }
     });
 
+    const [flag, setFlag] = useState(true);
+
+    const reloadDropdown = () => setFlag(f => !f);
+
     useEffect(() => {
         getDropdownValues(null, formName, dealId).then(
             response => {
@@ -78,7 +82,7 @@ const AddDealInteraction = ({ dealId, addInteractionToView, setDisplay, reload }
                 }
             }
         )
-    }, [reload])
+    }, [flag])
 
     const [loading, setLoading] = useState(false);
 
@@ -105,7 +109,9 @@ const AddDealInteraction = ({ dealId, addInteractionToView, setDisplay, reload }
             dropdowns={dropdowns}
             setFormData={setFormData}
             onSubmit={handleSubmit}
-            loading={loading} />
+            loading={loading}
+            reloadDropdown={reloadDropdown}
+        />
     );
 
 }

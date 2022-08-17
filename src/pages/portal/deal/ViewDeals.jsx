@@ -42,6 +42,7 @@ const ViewDeals = ({ pageNo, setPageNo, data, setSection, setCurrentDealId }) =>
             </div>
         );
     }
+
     return (
         <div className="flex flex-col w-full py-8">
             <Table

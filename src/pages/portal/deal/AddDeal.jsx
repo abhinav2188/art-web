@@ -9,70 +9,62 @@ import DealConsultants from "../deal-consultants/DealConsultants";
 import DealInteractions from "../deal-interactions/DealInteractions";
 import DealQuery from "../dealQuery/DealQuery";
 
+const initialData = {
+    cardDetails: {
+        createTimestamp: "",
+        updateTimestamp: "",
+        dealId: "",
+        dealName: "",
+        partyName: "",
+        partyId: "",
+        dealStage: "",
+        openingDate: "",
+        isActive: ""
+    },
+    productDetails: {
+        productType: "",
+        subCategoryProduct: "",
+        unitOfQuantity: "",
+        orderSizeFactor: "",
+        typeOfWork: "",
+        roadDetails: ""
+    },
+    commonDetails: {
+        siteLocation: "",
+        cateredByVertical: "",
+        paymentType: "",
+        openingDate: "",
+        expectedCloseDate: "",
+        actualCloseDate: "",
+        expectedNumberOfDays: "",
+        expectedDeliveryAddress: "",
+        lastPurchaseDetails: "",
+        competitorsInfo: "",
+        remarks: ""
+    },
+    additionalDetails: {
+        dealStage: "",
+        isActive: "",
+        dealValueInCr: "",
+        paymentTerms: "",
+        paymentFactor: "",
+        ownerFocus: "",
+        dealProbability: "",
+        expectedTurnover: "",
+        proximityFromBase: ""
+    },
+    authorizationDetails: {
+        owner: "",
+        coOwners: [
+        ]
+    }
+}
+
 const AddDeal = (props) => {
 
     const [dealId, setDealId] = useState(null);
 
-    const [dealDetails, setDealDetails] = useState({
-        cardDetails: {
-            createTimestamp: "",
-            updateTimestamp: "",
-            dealId: "",
-            dealName: "",
-            partyName: "",
-            partyId: "",
-            dealStage: "",
-            openingDate: "",
-            isActive: ""
-        },
-        productDetails: {
-            productType: "",
-            subCategoryProduct: "",
-            unitOfQuantity: "",
-            orderSizeFactor: "",
-            typeOfWork: "",
-            roadDetails: ""
-        },
-        commonDetails: {
-            siteLocation: "",
-            cateredByVertical: "",
-            paymentType: "",
-            openingDate: "",
-            expectedCloseDate: "",
-            actualCloseDate: "",
-            expectedNumberOfDays: "",
-            expectedDeliveryAddress: "",
-            lastPurchaseDetails: "",
-            competitorsInfo: "",
-            remarks: ""
-        },
-        additionalDetails: {
-            dealStage: "",
-            isActive: "",
-            dealValueInCr: "",
-            paymentTerms: "",
-            paymentFactor: "",
-            ownerFocus: "",
-            dealProbability: "",
-            expectedTurnover: "",
-            proximityFromBase: ""
-        },
-        authorizationDetails: {
-            owner: "",
-            coOwners: [
-            ]
-        }
-    });
-
-    // const [activeSection, setActiveSection] = useState(0);
-
-    // const nextSection = () => {
-    //     setActiveSection(prevActive => prevActive+1);
-    // } 
-
-    // const formSections = [
-    //     <CreateDeal setDealId={setDealId} />,
-    // ]
+    const [dealDetails, setDealDetails] = useState(initialData);
 
     return (
         <div className="flex flex-col gap-8 py-8">

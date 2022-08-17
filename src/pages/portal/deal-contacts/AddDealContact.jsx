@@ -46,6 +46,11 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
         }
     });
 
+
+    const [flag, setFlag] = useState(true);
+
+    const reloadDropdown = () => setFlag(f => !f);
+
     useEffect(() => {
         getDropdownValues(null, formName, dealId).then(
             response => {
@@ -55,7 +60,7 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
                 }
             }
         )
-    }, [])
+    }, [flag])
 
     const [loading, setLoading] = useState(false);
 
@@ -74,12 +79,6 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
         )
     }
 
-    // let [editMode, setEditMode] = useState(true);
-
-    // const actions = <div>
-    //     <button className="bg-green-500 rounded-full px-1" onClick={() => setEditMode(true)}>Edit</button>
-    // </div>
-
     return (
         <Form
             title="ADD Deal-Contact"
@@ -88,7 +87,9 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
             dropdowns={dropdowns}
             setFormData={setFormData}
             onSubmit={handleSubmit}
-            loading={loading} />
+            loading={loading}
+            reloadDropdown={reloadDropdown}
+        />
     );
 
 }

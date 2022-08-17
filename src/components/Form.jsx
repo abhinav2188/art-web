@@ -1,5 +1,6 @@
 import React from "react";
 import { handleFormDataChange } from "../utils/FormUtils";
+import ActionButton from "./button/ActionButton";
 import SubmitButton from "./button/SubmitButton";
 import BoolSelectInput from "./input/BoolSelectInput";
 import DateInput from "./input/DateInput";
@@ -69,7 +70,7 @@ const CustomInput = ({ field, value, handleChange, handleChange2, dropdowns }) =
 }
 
 
-const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns, multipart, title }) => {
+const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns, multipart, title, reloadDropdown }) => {
 
     const handleChange = (event) => {
         handleFormDataChange(event, setFormData);
@@ -84,7 +85,10 @@ const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns, mul
 
     return (
         <div className="flex flex-col w-full border rounded-xl p-4">
-            <h3 className="border-b mb-4">{title}</h3>
+            <div className="flex items-center gap-2 mb-3 border-b pb-1">
+                <h3>{title}</h3>
+                <ActionButton type="reload" onClick={reloadDropdown} />
+            </div>
             <form encType={multipart && "multipart/form-data"} className="flex flex-col gap-2">
                 {
                     fields.map(field =>

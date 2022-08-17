@@ -30,13 +30,15 @@ const Brochures = () => {
 
     const [pageNo, setPageNo] = useState(0);
 
+    const [flag, setFlag] = useState(true);
+
     useEffect(() => {
         getAllBrochures(pageNo).then(response => {
             if (response) {
                 setData(response.data);
             }
         })
-    }, [pageNo])
+    }, [pageNo, flag])
 
     function addBrochureToView(brochure) {
         setData(prevState => ({
@@ -50,8 +52,9 @@ const Brochures = () => {
 
     const [viewAddForm, setViewAddForm] = useState(false);
 
-    const tableActions = <div className="flex justify-center items-center">
+    const tableActions = <div className="flex justify-center items-center gap-1">
         <ActionButton type="add" onClick={() => setViewAddForm(true)} />
+        <ActionButton type="reload" onClick={() => setFlag(f => !f)} />
     </div>
 
 

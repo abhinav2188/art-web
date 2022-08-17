@@ -90,6 +90,10 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
         }
     }, [data])
 
+    const [flag, setFlag] = useState(true);
+
+    const reloadDropdown = () => setFlag(f => !f);
+
     const [dropdowns, setDropdowns] = useState({
         PRODUCT_TYPE: {
             values: []
@@ -114,7 +118,7 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
                 }
             }
         )
-    }, [])
+    }, [flag])
 
     const [loading, setLoading] = useState(false);
 
@@ -139,6 +143,10 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
         <ActionButton type="edit" onClick={() => setEditMode(true)} />
     </div>
 
+    const tableActions = <div className="flex">
+        <ActionButton type="reload" onClick={() => setFlag(f => !f)} />
+    </div>
+
     return (
         editMode ?
             <Form
@@ -148,7 +156,9 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
                 setFormData={setFormData}
                 dropdowns={dropdowns}
                 onSubmit={handleSubmit}
-                loading={loading} />
+                loading={loading}
+                reloadDropdown={reloadDropdown}
+            />
             :
             <ViewDetails viewFields={viewFields} data={data} actions={actions} title="product details" />
     );

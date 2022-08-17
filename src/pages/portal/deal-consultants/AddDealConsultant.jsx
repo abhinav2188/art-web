@@ -46,6 +46,10 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
         }
     });
 
+    const [flag, setFlag] = useState(true);
+
+    const reloadDropdown = () => setFlag(f => !f);
+
     useEffect(() => {
         getDropdownValues(null, formName, dealId).then(
             response => {
@@ -55,7 +59,7 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
                 }
             }
         )
-    }, [])
+    }, [flag])
 
     const [loading, setLoading] = useState(false);
 
@@ -76,13 +80,15 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
 
     return (
         <Form
-            title="ADD Deal-Contact"
+            title="ADD Deal-Consultant"
             fields={formFields}
             formData={formData}
             dropdowns={dropdowns}
             setFormData={setFormData}
             onSubmit={handleSubmit}
-            loading={loading} />
+            loading={loading}
+            reloadDropdown={reloadDropdown}
+        />
     );
 
 }

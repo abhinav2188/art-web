@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { postDeal } from "../../../services/dealService";
-import SubmitButton from "../../../components/button/SubmitButton";
-import SelectInput from "../../../components/input/SelectInput";
-import TextInput from "../../../components/input/TextInput";
 import { getDropdownValues } from "../../../services/dropdownService";
-import { handleFormDataChange } from "../../../utils/FormUtils";
 import ViewDetails from "../../../components/ViewDetails";
 import Form from "../../../components/Form";
+import ActionButton from "../../../components/button/ActionButton";
 
 const formName = "PARTY_DEAL";
 
@@ -42,7 +39,6 @@ const initialData = {
 
 const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
 
-
     const [formData, setFormData] = useState(initialData);
 
     const [dropdowns, setDropdowns] = useState({
@@ -50,6 +46,10 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
             values: []
         }
     });
+
+    const [flag, setFlag] = useState(true);
+
+    const reloadDropdown = () => setFlag(f => !f);
 
     useEffect(() => {
         getDropdownValues(null, formName, null).then(
@@ -60,7 +60,7 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
                 }
             }
         )
-    }, []);
+    }, [flag]);
 
     let [loading, setLoading] = useState(false);
 
@@ -82,6 +82,10 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
         })
     }
 
+    const tableActions = <div className="flex">
+        <ActionButton type="reload" onClick={() => setFlag(f => !f)} />
+    </div>
+
     return (
 
         editMode ?
@@ -92,7 +96,9 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
                 setFormData={setFormData}
                 dropdowns={dropdowns}
                 onSubmit={submitAddDealForm}
-                loading={loading} />
+                loading={loading}
+                reloadDropdown={reloadDropdown}
+            />
             :
             <ViewDetails viewFields={viewFields} title="Deal" data={data} />
     );

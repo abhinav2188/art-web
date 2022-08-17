@@ -41,6 +41,10 @@ const AddDealQuery = ({ dealId, setDisplay }) => {
         }
     });
 
+    const [flag, setFlag] = useState(true);
+
+    const reloadDropdown = () => setFlag(f => !f);
+
     useEffect(() => {
         getDropdownValues(null, formName, dealId).then(
             response => {
@@ -49,7 +53,7 @@ const AddDealQuery = ({ dealId, setDisplay }) => {
                 }
             }
         )
-    }, [])
+    }, [flag])
 
     const [loading, setLoading] = useState(false);
 
@@ -76,7 +80,9 @@ const AddDealQuery = ({ dealId, setDisplay }) => {
             dropdowns={dropdowns}
             setFormData={setFormData}
             onSubmit={handleSubmit}
-            loading={loading} />
+            loading={loading}
+            reloadDropdown={reloadDropdown}
+        />
     );
 
 }

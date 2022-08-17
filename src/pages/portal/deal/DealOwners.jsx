@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { addDealOwner, postDeal, removeDealOwner } from "../../../services/dealService";
-import { handleFormDataChange } from "../../../utils/FormUtils";
 import ActionButton from "../../../components/button/ActionButton";
 import Form from "../../../components/Form";
-import { Close } from "../../../svgs/svgIcons";
 
 const DealOwners = ({ dealId, setDealDetails, data }) => {
 
@@ -65,6 +63,7 @@ const DealOwners = ({ dealId, setDealDetails, data }) => {
     }
 
     const [viewAdd, setViewAdd] = useState(false);
+
 
     return (
         <div className="flex flex-col gap-8 border rounded-xl px-2">
