@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ActionButton from "../../../components/button/ActionButton";
 import Form from "../../../components/Form";
 import ViewDetails from "../../../components/ViewDetails";
 import { putDealSection3 } from "../../../services/dealService";
@@ -168,13 +169,14 @@ const DealSection3 = ({ dealId, setDealDetails, data, edit }) => {
 
     let [editMode, setEditMode] = useState(edit);
 
-    const actions = <div>
-        <button className="bg-green-500 rounded-full px-1" onClick={() => setEditMode(true)}>Edit</button>
+    const actions = <div className="flex" >
+        <ActionButton type="edit" onClick={() => setEditMode(true)} />
     </div>
 
     return (
         editMode ?
             <Form
+                title="UPDATE Common Details"
                 fields={formFields}
                 formData={formData}
                 dropdowns={dropdowns}

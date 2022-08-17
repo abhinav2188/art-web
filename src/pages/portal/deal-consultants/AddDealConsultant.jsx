@@ -74,14 +74,9 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
         )
     }
 
-    // let [editMode, setEditMode] = useState(true);
-
-    // const actions = <div>
-    //     <button className="bg-green-500 rounded-full px-1" onClick={() => setEditMode(true)}>Edit</button>
-    // </div>
-
     return (
         <Form
+            title="ADD Deal-Contact"
             fields={formFields}
             formData={formData}
             dropdowns={dropdowns}

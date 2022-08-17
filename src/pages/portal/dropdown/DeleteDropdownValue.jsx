@@ -18,7 +18,7 @@ const DeleteDropdownValue = ({ dropdownId, removeFromView }) => {
     }
 
     return (
-        <ActionButton loading={valueDeleteProgress} onClick={deleteValue}>Delete</ActionButton>
+        <ActionButton type="delete" loading={valueDeleteProgress} onClick={deleteValue} />
     );
 }
 

@@ -86,6 +86,7 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
 
         editMode ?
             <Form
+                title="Deal"
                 fields={formFields}
                 formData={formData}
                 setFormData={setFormData}

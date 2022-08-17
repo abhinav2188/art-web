@@ -4,6 +4,7 @@ import { putDealSection2 } from "../../../services/dealService";
 import { getDropdownValues } from "../../../services/dropdownService";
 import { handleFormDataChange } from "../../../utils/FormUtils";
 import ViewDetails from "../../../components/ViewDetails";
+import ActionButton from "../../../components/button/ActionButton";
 
 const formName = "DEAL_PRODUCT_REQUIREMENTS";
 
@@ -134,13 +135,14 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
 
     let [editMode, setEditMode] = useState(edit);
 
-    const actions = <div>
-        <button className="bg-green-500 rounded-full px-1" onClick={() => setEditMode(true)}>Edit</button>
+    const actions = <div className="flex">
+        <ActionButton type="edit" onClick={() => setEditMode(true)} />
     </div>
 
     return (
         editMode ?
             <Form
+                title="UPDATE Product Details"
                 fields={formFields}
                 formData={formData}
                 setFormData={setFormData}

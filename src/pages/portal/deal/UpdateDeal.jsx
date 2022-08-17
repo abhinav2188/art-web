@@ -79,7 +79,7 @@ const UpdateDeal = ({ dealId }) => {
 
     return (
         dealId ?
-            <div className="flex flex-col gap-8 p-8">
+            <div className="flex flex-col gap-8 py-8">
                 <DealSection1 setDealDetails={setDealDetails} data={dealDetails.cardDetails} />
                 <DealQuery dealId={dealId} />
                 <DealSection2 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.productDetails} />

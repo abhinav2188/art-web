@@ -54,6 +54,7 @@ const UpdateUserAuth = (props) => {
     return (
         formData ?
             <Form
+                title="UPDATE User-Authorization"
                 fields={formFields}
                 formData={formData}
                 setFormData={setFormData}

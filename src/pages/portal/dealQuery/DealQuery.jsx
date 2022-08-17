@@ -1,16 +1,15 @@
 import React, { useState } from "react";
+import SubmitButton from "../../../components/button/SubmitButton";
 import AddDealQuery from "./AddDealQuery";
 
 const DealQuery = ({ dealId }) => {
 
-    const [viewAddForm, setViewAddForm] = useState(true);
+    const [viewAddForm, setViewAddForm] = useState(false);
 
     return (
         viewAddForm ?
             <AddDealQuery setDisplay={setViewAddForm} dealId={dealId} /> :
-            <p>
-                <button className="bg-yellow-600 p-1 rounded" onClick={() => setViewAddForm(true)}>Send Query</button>
-            </p>
+            <SubmitButton type="add" onClick={() => setViewAddForm(true)} >Send Query</SubmitButton>
     );
 
 }

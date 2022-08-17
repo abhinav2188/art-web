@@ -3,6 +3,7 @@ import { addDealOwner, postDeal, removeDealOwner } from "../../../services/dealS
 import { handleFormDataChange } from "../../../utils/FormUtils";
 import ActionButton from "../../../components/button/ActionButton";
 import Form from "../../../components/Form";
+import { Close } from "../../../svgs/svgIcons";
 
 const DealOwners = ({ dealId, setDealDetails, data }) => {
 
@@ -59,31 +60,34 @@ const DealOwners = ({ dealId, setDealDetails, data }) => {
             })
         }
         return (
-            <ActionButton loading={removeProgress} onClick={removeOwner}>X</ActionButton>
+            <ActionButton loading={removeProgress} onClick={removeOwner} type="delete" />
         );
     }
 
     const [viewAdd, setViewAdd] = useState(false);
 
     return (
-        <div className="flex flex-col">
-            <div className="flex justify-between">
-                <p>Deal Owners</p>
-                <ActionButton onClick={() => setViewAdd(prevState => !prevState)}>Add</ActionButton>
-            </div>
-            <div className="flex flex-wrap">
-                {
-                    data.coOwners.map(owner =>
-                        <div className="border rounded-full px-1">
-                            <span>{owner.email}</span>
-                            <RemoveOwnerButton owner={owner} />
-                        </div>
-                    )
-                }
+        <div className="flex flex-col gap-8 border rounded-xl px-2">
+            <div className="flex flex-col">
+                <div className="flex justify-between border-b items-center py-1">
+                    <h3>Deal Owners</h3>
+                    <ActionButton onClick={() => setViewAdd(prevState => !prevState)} type="add">Add</ActionButton>
+                </div>
+                <div className="flex flex-wrap gap-2 py-4">
+                    {
+                        data.coOwners.map(owner =>
+                            <div className="border rounded-lg flex items-center">
+                                <span className="px-2">{owner.email}</span>
+                                <RemoveOwnerButton owner={owner} />
+                            </div>
+                        )
+                    }
+                </div>
             </div>
             {
                 viewAdd &&
                 <Form
+                    title="UPDATE Deal Owners"
                     fields={formFields}
                     formData={formData}
                     setFormData={setFormData}

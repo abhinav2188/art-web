@@ -48,6 +48,7 @@ const AddBrochure = ({ addBrochureToView, setDisplay }) => {
     return (
 
         <Form
+            title="ADD Brochure"
             fields={formFields}
             formData={formData}
             setFormData={setFormData}

@@ -50,13 +50,13 @@ const Brochures = () => {
 
     const [viewAddForm, setViewAddForm] = useState(false);
 
-    const tableActions = <div>
-        <button className="bg-green-600 px-1" onClick={() => setViewAddForm(true)} >add brochure</button>
+    const tableActions = <div className="flex justify-center items-center">
+        <ActionButton type="add" onClick={() => setViewAddForm(true)} />
     </div>
 
 
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full gap-8 mt-8">
             <Table
                 viewFields={viewFields}
                 pageNo={pageNo}

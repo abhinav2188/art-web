@@ -48,10 +48,10 @@ const UsersPanel = (props) => {
 
     let [currentUser, setCurrentUser] = useState(null);
 
-    const entryActions = (user) => <div>
-        <ActionButton onClick={() => {
+    const entryActions = (user) => <div className="flex">
+        <ActionButton type="edit" onClick={() => {
             setCurrentUser(user);
-        }}>Update</ActionButton>
+        }} />
     </div>
 
     function updateView(user) {
@@ -65,7 +65,7 @@ const UsersPanel = (props) => {
     }
 
     return (
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col gap-8 py-8">
             <Table viewFields={viewFields}
                 entriesList={usersData.usersList}
                 totalPages={usersData.totalPages}

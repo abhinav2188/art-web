@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-import SubmitButton from "../../../components/button/SubmitButton";
 import Form from "../../../components/Form";
-import SelectInput from "../../../components/input/SelectInput";
-import TextInput from "../../../components/input/TextInput";
 import { getDropdownValues } from "../../../services/dropdownService";
 import { postParty } from "../../../services/partyService";
-import { handleFormDataChange } from "../../../utils/FormUtils";
 
 
 const formFields = [
@@ -80,14 +76,17 @@ const AddParty = ({ addPartyToView }) => {
     }
 
     return (
-        <Form
-            fields={formFields}
-            formData={formData}
-            setFormData={setFormData}
-            dropdowns={dropdowns}
-            onSubmit={handleSubmit}
-            loading={loading}
-        />
+        <div className="py-8">
+            <Form
+                title="ADD New Party"
+                fields={formFields}
+                formData={formData}
+                setFormData={setFormData}
+                dropdowns={dropdowns}
+                onSubmit={handleSubmit}
+                loading={loading}
+            />
+        </div>
     );
 }
 

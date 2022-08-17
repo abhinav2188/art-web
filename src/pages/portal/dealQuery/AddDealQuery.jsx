@@ -70,6 +70,7 @@ const AddDealQuery = ({ dealId, setDisplay }) => {
 
     return (
         <Form
+            title="SEND Deal-Query"
             fields={formFields}
             formData={formData}
             dropdowns={dropdowns}

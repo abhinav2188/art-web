@@ -57,8 +57,8 @@ const DealConsultants = ({ dealId, add }) => {
 
     const [viewAddForm, setViewAddForm] = useState(add);
 
-    const tableActions = <div>
-        <button className="bg-green-600 px-1" onClick={() => setViewAddForm(true)} >add consultant</button>
+    const tableActions = <div className="flex">
+        <ActionButton type="add" onClick={() => setViewAddForm(true)} />
     </div>
 
     const DeleteConsultantButton = ({ consultantId }) => {
@@ -80,17 +80,18 @@ const DealConsultants = ({ dealId, add }) => {
         }
 
         return (
-            <ActionButton loading={loading} onClick={() => deleteConsultant(consultantId)}>Delete</ActionButton>
+            <ActionButton type="delete" loading={loading} onClick={() => deleteConsultant(consultantId)}>Delete</ActionButton>
         );
     }
 
 
-    const entryActions = (consultant) => <div>
-        <DeleteConsultantButton consultantId={consultant.id} />
-    </div>
+    const entryActions = (consultant) =>
+        <div className="flex">
+            <DeleteConsultantButton consultantId={consultant.id} />
+        </div>
 
     return (
-        <div>
+        <div className="flex flex-col gap-8">
             <Table
                 viewFields={viewFields}
                 pageNo={pageNo}

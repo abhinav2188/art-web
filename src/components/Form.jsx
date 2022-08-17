@@ -69,7 +69,7 @@ const CustomInput = ({ field, value, handleChange, handleChange2, dropdowns }) =
 }
 
 
-const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns, multipart }) => {
+const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns, multipart, title }) => {
 
     const handleChange = (event) => {
         handleFormDataChange(event, setFormData);
@@ -83,17 +83,20 @@ const Form = ({ fields, setFormData, onSubmit, formData, loading, dropdowns, mul
     }
 
     return (
-        <form encType={multipart && "multipart/form-data"}>
-            {
-                fields.map(field =>
-                    <CustomInput field={field} value={formData[field.name]} handleChange={handleChange} handleChange2={handleChange2} dropdowns={dropdowns} />
-                )
-            }
-            <SubmitButton onClick={(event) => {
-                event.preventDefault();
-                onSubmit();
-            }} loading={loading} />
-        </form>
+        <div className="flex flex-col w-full border rounded-xl p-4">
+            <h3 className="border-b mb-4">{title}</h3>
+            <form encType={multipart && "multipart/form-data"} className="flex flex-col gap-2">
+                {
+                    fields.map(field =>
+                        <CustomInput field={field} value={formData[field.name]} handleChange={handleChange} handleChange2={handleChange2} dropdowns={dropdowns} />
+                    )
+                }
+                <SubmitButton className="mt-4 self-center" onClick={(event) => {
+                    event.preventDefault();
+                    onSubmit();
+                }} loading={loading} />
+            </form>
+        </div>
     );
 
 }

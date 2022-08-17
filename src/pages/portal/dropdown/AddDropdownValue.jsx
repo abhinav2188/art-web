@@ -47,6 +47,7 @@ const AddDropdownValue = ({ dropdownKey, addToView }) => {
     return (
         !!dropdownKey &&
         <Form
+            title="ADD Dropdown Value"
             fields={formFields}
             formData={formData}
             setFormData={setFormData}

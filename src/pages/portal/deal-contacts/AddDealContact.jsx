@@ -82,6 +82,7 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
 
     return (
         <Form
+            title="ADD Deal-Contact"
             fields={formFields}
             formData={formData}
             dropdowns={dropdowns}

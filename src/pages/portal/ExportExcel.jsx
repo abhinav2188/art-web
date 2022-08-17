@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ActionButton from "../../components/button/ActionButton";
+import SubmitButton from "../../components/button/SubmitButton";
 import { getDealsExcel } from "../../services/excelDownloadService";
 
 const ExportExcel = () => {
@@ -32,8 +33,8 @@ const ExportExcel = () => {
 
     return (
         isDownloadable ?
-            <ActionButton onClick={onDownload}><a href={link} download="data.xlsx">Download</a></ActionButton> :
-            <ActionButton onClick={exportExcel} loading={loading}>Export as Excel</ActionButton>
+            <SubmitButton onClick={onDownload}><a href={link} download="data.xlsx">Download</a></SubmitButton> :
+            <SubmitButton onClick={exportExcel} loading={loading}>Export as Excel</SubmitButton>
     );
 }
 

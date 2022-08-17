@@ -99,6 +99,7 @@ const AddDealInteraction = ({ dealId, addInteractionToView, setDisplay, reload }
 
     return (
         <Form
+            title="ADD Deal-Interaction"
             fields={formFields}
             formData={formData}
             dropdowns={dropdowns}

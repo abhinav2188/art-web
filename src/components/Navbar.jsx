@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import logo from "../logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
+import { Logout, User } from "../svgs/svgIcons";
 
 const Navbar = () => {
     const userContext = useContext(UserContext);
@@ -18,7 +19,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="shadow-sm w-full flex items-center gap-4 justify-between px-16">
+        <nav className="shadow-sm w-full flex items-center gap-4 justify-between px-4">
             <NavLink to="/">
                 <img src={logo} alt="logo" className="h-16" />
             </NavLink>
@@ -29,8 +30,11 @@ const Navbar = () => {
                         <NavLink to="/register" className={({ isActive }) => ["p-2 rounded-sm", isActive ? "bg-gray-200" : ""].join(" ")}>Register</NavLink>
                     </div> :
                     <div className="flex items-center gap-4">
-                        <button>{userContext.user.email}</button>
-                        <button onClick={logoutUser}>Logout</button>
+                        <button className="flex items-center gap-1 border rounded-full px-1">
+                            <span className="w-5 h-5">{User}</span>
+                            <span>{userContext.user.email}</span>
+                        </button>
+                        <button onClick={logoutUser} className="w-4 h-4">{Logout}</button>
                     </div>
             }
         </nav>

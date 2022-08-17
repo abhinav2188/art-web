@@ -4,6 +4,7 @@ import { putDealSection4 } from "../../../services/dealService";
 import { getDropdownValues } from "../../../services/dropdownService";
 import { handleFormDataChange } from "../../../utils/FormUtils";
 import ViewDetails from "../../../components/ViewDetails";
+import ActionButton from "../../../components/button/ActionButton";
 
 const formFields = [
     {
@@ -154,13 +155,14 @@ const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
 
     let [editMode, setEditMode] = useState(edit);
 
-    const actions = <div>
-        <button className="bg-green-500 rounded-full px-1" onClick={() => setEditMode(true)}>Edit</button>
+    const actions = <div className="flex">
+        <ActionButton type="edit" onClick={() => setEditMode(true)} />
     </div>
 
     return (
         editMode ?
             <Form
+                title="UPDATE Additional Details"
                 fields={formFields}
                 formData={formData}
                 dropdowns={dropdowns}

@@ -37,23 +37,25 @@ const viewFields = [
 
 const ViewParty = ({ data, pageNo, setPageNo, setCurrentParty, setSection }) => {
 
-    const entryActions = (party) => <div>
+    const entryActions = (party) => <div className="flex">
         <ActionButton onClick={() => {
             setCurrentParty(party);
             setSection("update");
-        }}>Update</ActionButton>
+        }} type="edit">Update</ActionButton>
     </div>
 
     return (
-        <Table viewFields={viewFields}
-            entriesList={data.partyList}
-            totalPages={data.totalPagesCount}
-            totalEntries={data.totalCount}
-            pageNo={pageNo}
-            setPageNo={setPageNo}
-            title="Party"
-            entryActions={entryActions}
-        />
+        <div className="py-8">
+            <Table viewFields={viewFields}
+                entriesList={data.partyList}
+                totalPages={data.totalPagesCount}
+                totalEntries={data.totalCount}
+                pageNo={pageNo}
+                setPageNo={setPageNo}
+                title="Party"
+                entryActions={entryActions}
+            />
+        </div>
     );
 }
 

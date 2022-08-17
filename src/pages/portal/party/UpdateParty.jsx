@@ -78,17 +78,23 @@ const UpdateParty = (props) => {
 
 
     return (
-        props.formData ?
-            <Form
-                fields={formFields}
-                formData={formData}
-                setFormData={setFormData}
-                dropdowns={dropdowns}
-                onSubmit={handleSubmit}
-                loading={loading}
-            />
-            :
-            <p>No party selected! Select party from view section.</p>
+
+        <div className="py-8">
+            {
+                props.formData ?
+                    <Form
+                        title="UPDATE Party Details"
+                        fields={formFields}
+                        formData={formData}
+                        setFormData={setFormData}
+                        dropdowns={dropdowns}
+                        onSubmit={handleSubmit}
+                        loading={loading}
+                    />
+                    :
+                    <p>No party selected! Select party from view section.</p>
+            }
+        </div>
     );
 }
 

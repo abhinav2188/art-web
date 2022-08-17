@@ -57,8 +57,8 @@ const DealContacts = ({ dealId, add }) => {
 
     const [viewAddForm, setViewAddForm] = useState(add);
 
-    const tableActions = <div>
-        <button className="bg-green-600 px-1" onClick={() => setViewAddForm(true)} >add contact</button>
+    const tableActions = <div className="flex">
+        <ActionButton type="add" onClick={() => setViewAddForm(true)} />
     </div>
 
     const DeleteContactButton = ({ contactId }) => {
@@ -80,17 +80,17 @@ const DealContacts = ({ dealId, add }) => {
         }
 
         return (
-            <ActionButton loading={loading} onClick={() => deleteContact(contactId)}>Delete</ActionButton>
+            <ActionButton type="delete" loading={loading} onClick={() => deleteContact(contactId)} />
         );
     }
 
 
-    const entryActions = (contact) => <div>
+    const entryActions = (contact) => <div className="flex">
         <DeleteContactButton contactId={contact.id} />
     </div>
 
     return (
-        <div>
+        <div className="flex flex-col gap-8">
             <Table
                 viewFields={viewFields}
                 pageNo={pageNo}

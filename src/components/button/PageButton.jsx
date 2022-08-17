@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { LeftArrow, RightArrow } from "../../svgs/svgIcons";
 
 const PageButton = (props) => {
     return (
-        <div className="flex items-center">
-            <span>Page :</span>
-            <button className="bg-gray-200 rounded w-5 h-5" onClick={() => {
+        <div className="flex items-center border rounded-full h-5">
+            <button className="w-5" onClick={() => {
                 props.setPageNo(prevPageNo => (prevPageNo - 1) < 0 ? prevPageNo : prevPageNo - 1);
-            }}>-</button>
-            <p className="w-12">{props.pageNo + 1}</p>
-            <button className="bg-gray-200 rounded w-5 h-5" onClick={() => {
+            }}>{LeftArrow}</button>
+            <p className="px-1">{props.pageNo + 1}</p>
+            <button className="w-5" onClick={() => {
                 props.setPageNo(prevPageNo => (prevPageNo + 1) >= props.totalPagesCount ? prevPageNo : prevPageNo + 1);
-            }}>+</button>
+            }}>{RightArrow}</button>
         </div>
     )
 }

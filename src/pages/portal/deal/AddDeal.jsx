@@ -75,11 +75,11 @@ const AddDeal = (props) => {
     // ]
 
     return (
-        <div className="flex flex-col gap-8 p-8">
+        <div className="flex flex-col gap-8 py-8">
             <DealSection1 setDealId={setDealId} setDealDetails={setDealDetails} data={dealDetails.cardDetails} edit />
             {
                 dealId &&
-                <div>
+                <div className="flex flex-col gap-8">
                     <DealQuery dealId={dealId} />
                     <DealSection2 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.productDetails} edit />
                     <DealSection3 dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.commonDetails} edit />

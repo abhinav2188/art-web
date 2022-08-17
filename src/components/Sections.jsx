@@ -8,10 +8,10 @@ const Sections = ({ sections, section, setSection }) => {
 
     return (
         <div className="w-full flex flex-col">
-            <nav className="shadow-sm w-full flex items-center gap-1 py-1">
+            <nav className="w-full flex items-center gap-1 pt-4">
                 {
                     sections.map((sec, i) =>
-                        <button className={`border rounded-full px-2 ${isSectionActive(sec.name) ? "bg-blue-200" : ""}`} onClick={() => setSection(sec.name)} key={i}>{sec.name}</button>
+                        <button className={`border border-sky-200 rounded-xl px-2 ${isSectionActive(sec.name) ? "bg-sky-200" : ""}`} onClick={() => setSection(sec.name)} key={i}>{sec.name}</button>
                     )
                 }
             </nav>
