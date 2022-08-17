@@ -44,13 +44,13 @@ const Register = (props) => {
     }
     return (
         <div className="flex flex-col p-4 border-sm w-96 border shadow-md rounded-lg my-16 self-center">
-            <h2>Register new User</h2>
-            <form className="flex flex-col items-center w-full mt-8 mb-2">
+            <h3 className="border-b">Register User</h3>
+            <form className="flex flex-col items-center w-full mt-8 mb-2 gap-2">
                 <TextInput name="email" label="Email" value={formData.email} onChange={handleChange} />
                 <TextInput name="mobile" label="Mobile" value={formData.mobile} onChange={handleChange} />
                 <TextPassword name="password" label="Password" value={formData.password} onChange={handleChange} />
                 <TextPassword name="confirmPassword" label="Confirm Password" value={formData.confirmPassword} onChange={handleChange} />
-                <SubmitButton onClick={submitRegisterForm} loading={loading} />
+                <SubmitButton onClick={submitRegisterForm} loading={loading} className="mt-4" />
             </form>
         </div>
     );

@@ -90,7 +90,9 @@ const UpdateDeal = ({ dealId }) => {
                 <DealConsultants dealId={dealId} />
                 <DealInteractions dealId={dealId} add />
             </div> :
-            <p>Select a deal from view section</p>
+            <div className="flex flex-col gap-8 py-8">
+                <p>Select a deal from view section</p>
+            </div>
     );
 }
 

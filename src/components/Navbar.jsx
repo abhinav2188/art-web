@@ -26,8 +26,8 @@ const Navbar = () => {
             {
                 userContext.user === null ?
                     <div className="flex items-center gap-4">
-                        <NavLink to="/login" className={({ isActive }) => ["p-2 rounded-sm", isActive ? "bg-gray-200" : ""].join(" ")}>Login</NavLink>
-                        <NavLink to="/register" className={({ isActive }) => ["p-2 rounded-sm", isActive ? "bg-gray-200" : ""].join(" ")}>Register</NavLink>
+                        <NavLink to="/login" className={({ isActive }) => ["px-2 py-1 rounded border border-sky-500", isActive ? "bg-sky-500 text-white" : ""].join(" ")}>Login</NavLink>
+                        <NavLink to="/register" className={({ isActive }) => ["px-2 py-1 rounded border border-sky-500", isActive ? "bg-sky-500 text-white" : ""].join(" ")}>Register</NavLink>
                     </div> :
                     <div className="flex items-center gap-4">
                         <button className="flex items-center gap-1 border rounded-full px-1">
