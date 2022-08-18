@@ -66,10 +66,10 @@ const DropdownsPanel = (props) => {
         }));
     }
 
-    function removeFromView(dropdownValue) {
+    function removeFromView(dropdownId) {
         setDropdownData(prevState => ({
             ...prevState,
-            values: prevState.values.filter(value => value.id != dropdownValue.id)
+            values: prevState.values.filter(value => value.id != dropdownId)
         }))
 
     }

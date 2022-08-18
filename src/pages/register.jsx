@@ -49,11 +49,12 @@ const Register = (props) => {
                 <TextInput name="email" label="Email" value={formData.email} onChange={handleChange} />
                 <TextInput name="mobile" label="Mobile" value={formData.mobile} onChange={handleChange} />
                 <TextPassword name="password" label="Password" value={formData.password} onChange={handleChange} />
-                <TextPassword name="confirmPassword" label="Confirm Password" value={formData.confirmPassword} onChange={handleChange} />
                 <SubmitButton onClick={submitRegisterForm} loading={loading} className="mt-4" />
             </form>
         </div>
     );
 }
+
+// <TextPassword name="confirmPassword" label="Confirm Password" value={formData.confirmPassword} onChange={handleChange} /> 
 
 export default Register;
