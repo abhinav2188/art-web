@@ -37,7 +37,7 @@ const initialData = {
     dealName: ""
 };
 
-const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
+const DealSection1 = ({ setDealId, setDealDetails, data, edit, reloadDealButton }) => {
 
     const [formData, setFormData] = useState(initialData);
 
@@ -82,8 +82,8 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
         })
     }
 
-    const tableActions = <div className="flex">
-        <ActionButton type="reload" onClick={() => setFlag(f => !f)} />
+    const actions = <div className="flex">
+        {reloadDealButton}
     </div>
 
     return (
@@ -100,7 +100,7 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit }) => {
                 reloadDropdown={reloadDropdown}
             />
             :
-            <ViewDetails viewFields={viewFields} title="Deal" data={data} />
+            <ViewDetails viewFields={viewFields} title="Deal" data={data} actions={actions} />
     );
 }
 

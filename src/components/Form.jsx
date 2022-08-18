@@ -64,7 +64,7 @@ const CustomInput = ({ field, value, handleChange, handleChange2, dropdowns }) =
             );
         case "file":
             return (
-                <FileInput label={field.label} name={field.name} onChange={handleChange2} />
+                <FileInput label={field.label} name={field.name} onChange={handleChange2} accept={field.accept} />
             );
     }
 }

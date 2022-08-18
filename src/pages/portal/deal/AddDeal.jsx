@@ -8,6 +8,7 @@ import DealOwners from "./DealOwners";
 import DealConsultants from "../deal-consultants/DealConsultants";
 import DealInteractions from "../deal-interactions/DealInteractions";
 import DealQuery from "../dealQuery/DealQuery";
+import DealAttachments from "../deal-attachment/DealAttachments";
 
 const initialData = {
     cardDetails: {
@@ -80,6 +81,7 @@ const AddDeal = (props) => {
                     <DealContacts dealId={dealId} />
                     <DealConsultants dealId={dealId} />
                     <DealInteractions dealId={dealId} />
+                    <DealAttachments dealId={dealId} />
                 </div>
             }
         </div>
