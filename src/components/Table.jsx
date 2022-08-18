@@ -16,7 +16,7 @@ const Table = ({ viewFields, entriesList, totalEntries, totalPages, pageNo, setP
             </div>
             {
                 entriesList.length > 0 &&
-                <table className="rounded-xl">
+                <table className="rounded-xl border-box table">
                     <thead>
                         <tr className="bg-gray-500 text-white font-bold">
                             {

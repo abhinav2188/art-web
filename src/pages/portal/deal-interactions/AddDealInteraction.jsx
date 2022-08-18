@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Form from "../../../components/Form";
 import { addDealInteraction } from "../../../services/dealInteractionsService";
 import { getDropdownValues } from "../../../services/dropdownService";
-import { handleFormDataChange } from "../../../utils/FormUtils";
 
 const formName = "DEAL_INTERACTIONS";
 
@@ -45,11 +44,12 @@ const formFields = [
         name: "handlers",
         type: "dropdown",
         dropdownType: "MEETING_HANDLER",
+        multiple: true
     },
     {
         label: "Meeting Details",
         name: "meetingDetails",
-        type: "text"
+        type: "textArea"
     }
 ];
 

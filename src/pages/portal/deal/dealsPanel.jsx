@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sections from "../../../components/Sections";
 import { getAllDeals } from "../../../services/dealService";
 import AddDeal from "./AddDeal";
+import DealHistory from "./DealHistory";
 import UpdateDeal from "./UpdateDeal";
 import ViewDeals from "./ViewDeals";
 
@@ -48,6 +49,10 @@ const DealsPanel = (props) => {
         {
             name: "updateDeal",
             component: <UpdateDeal dealId={currentDealId} />
+        },
+        {
+            name: "History",
+            component: <DealHistory dealId={currentDealId} />
         }
     ]
 
