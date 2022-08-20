@@ -15,14 +15,6 @@ const DealsPanel = (props) => {
         "deals": []
     });
 
-    useEffect(() => {
-        getAllDeals(pageNo).then(response => {
-            if (response) {
-                setDealsData(response);
-            }
-        })
-    }, [pageNo])
-
     function addDealToView(deal) {
         setDealsData(prevState => ({
             ...prevState,
@@ -40,7 +32,7 @@ const DealsPanel = (props) => {
     const dealSections = [
         {
             name: "viewDeals",
-            component: <ViewDeals data={dealsData} pageNo={pageNo} setPageNo={setPageNo} setCurrentDealId={setCurrentDealId} setSection={setSection} />
+            component: <ViewDeals data={dealsData} setData={setDealsData} pageNo={pageNo} setPageNo={setPageNo} setCurrentDealId={setCurrentDealId} setSection={setSection} />
         },
         {
             name: "addDeal",

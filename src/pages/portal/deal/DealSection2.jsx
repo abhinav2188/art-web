@@ -143,10 +143,6 @@ const DealSection2 = ({ dealId, setDealDetails, data, edit }) => {
         <ActionButton type="edit" onClick={() => setEditMode(true)} />
     </div>
 
-    const tableActions = <div className="flex">
-        <ActionButton type="reload" onClick={() => setFlag(f => !f)} />
-    </div>
-
     return (
         editMode ?
             <Form

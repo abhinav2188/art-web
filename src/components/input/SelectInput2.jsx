@@ -7,10 +7,13 @@ const SelectInput2 = ({ optionsList, name, label, onChange, multiple, value }) =
     const [options, setOptions] = useState([]);
 
     useEffect(() => {
-        setOptions(optionsList.map(option => ({
+        setOptions([...optionsList.map(option => ({
             value: option.value,
             label: option.value
-        })));
+        })), {
+            value: "",
+            label: "NONE"
+        }]);
     }, [optionsList])
 
     useEffect(() => {
