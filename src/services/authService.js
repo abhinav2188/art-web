@@ -1,14 +1,11 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:8080/api/auth"
-
+import instance from "../axiosInstance";
 
 async function loginUser(email, password) {
 
     console.log("login(" + email + ')');
-    const path = API_URL + "/login";
+    const path = "/auth/login";
 
-    return axios.post(path, {
+    return instance.post(path, {
         email,
         password,
     })
@@ -28,8 +25,8 @@ async function loginUser(email, password) {
 
 async function registerUser(email, password, mobile) {
     console.log("register(" + email + ')');
-    const path = API_URL + "/register";
-    return axios.post(path, {
+    const path = "/auth/register";
+    return instance.post(path, {
         email,
         password,
         mobile

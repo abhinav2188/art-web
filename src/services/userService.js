@@ -1,5 +1,4 @@
 import instance from "../axiosInstance";
-// import axios from "axios";
 
 export async function getAllUsers(pageNo) {
     console.log("getAllUsers()");

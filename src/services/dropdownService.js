@@ -1,10 +1,10 @@
-import axios from "axios";
+import instance from "../axiosInstance";
 
 const API_URL = "http://localhost:8080/api"
 
 export async function getDropdownKeys() {
     console.log("getDropdownKeys()");
-    return axios.get(API_URL + "/int/dropdown/keys")
+    return instance.get("/int/dropdown/keys")
         .then(
             response => {
                 console.log("response data:", response.data);
@@ -21,7 +21,7 @@ export async function getDropdownKeys() {
 
 export async function getDropdownValues(dropdownType, formType, dealId) {
     console.log("getDropdownValues()");
-    return axios.get(API_URL + "/ext/dropdown", {
+    return instance.get("/ext/dropdown", {
         params: {
             dropdownType, formType, dealId
         }
@@ -42,7 +42,7 @@ export async function getDropdownValues(dropdownType, formType, dealId) {
 
 export async function postDropdownValue(data) {
     console.log("getDropdownValues()");
-    return axios.post(API_URL + "/int/dropdown", data)
+    return instance.post("/int/dropdown", data)
         .then(
             response => {
                 console.log("response data:", response.data);
@@ -59,7 +59,7 @@ export async function postDropdownValue(data) {
 
 export async function deleteDropdownValue(valueId) {
     console.log("getDropdownValues()");
-    return axios.delete(API_URL + "/int/dropdown/value", {
+    return instance.delete("/int/dropdown/value", {
         params: {
             valueId
         }
