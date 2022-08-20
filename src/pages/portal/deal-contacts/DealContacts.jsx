@@ -14,12 +14,20 @@ const viewFields = [
         name: "name",
     },
     {
-        label: "Email",
-        name: "email",
+        label: "Email-Pri",
+        name: "email1",
     },
     {
-        label: "Mobile",
-        name: "mobile",
+        label: "Email-Sec",
+        name: "email2",
+    },
+    {
+        label: "Mobile-Pri",
+        name: "mobile1",
+    },
+    {
+        label: "Mobile-Sec",
+        name: "mobile2",
     },
     {
         label: "Designation",

@@ -12,6 +12,7 @@ const Portal = (props) => {
                     <NavLink to="party" className={({ isActive }) => [" px-1", isActive ? "border-b-2 border-sky-600 text-sky-600 font-bold" : ""].join(" ")} >Party</NavLink>
                     <NavLink to="deals" className={({ isActive }) => ["  px-1", isActive ? "border-b-2 border-sky-600 text-sky-600 font-bold" : ""].join(" ")} >Deals</NavLink>
                     <NavLink to="brochures" className={({ isActive }) => [" px-1", isActive ? "border-b-2 border-sky-600 text-sky-600 font-bold" : ""].join(" ")} >Brochures</NavLink>
+                    <NavLink to="contacts" className={({ isActive }) => [" px-1", isActive ? "border-b-2 border-sky-600 text-sky-600 font-bold" : ""].join(" ")} >Contacts</NavLink>
                 </div>
                 <div className="flex">
                     <ExportExcel />

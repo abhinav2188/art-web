@@ -11,6 +11,7 @@ import Brochures from './pages/portal/brochures/Brochures';
 import UsersPanel from './pages/portal/userPanel/usersPanel';
 import DealsPanel from './pages/portal/deal/dealsPanel';
 import PartyPanel from './pages/portal/party/partyPanel';
+import Contacts from './pages/portal/contact/Contacts';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                   <Route path='deals' element={<DealsPanel />}></Route>
                   <Route path='dropdowns' element={<DropdownsPanel />}></Route>
                   <Route path='party' element={<PartyPanel />} />
+                  <Route path='contacts' element={<Contacts />} />
                   <Route path='brochures' element={<Brochures />} />
                   <Route path='forbidden' element={<Forbidden />}></Route>
                 </Route>

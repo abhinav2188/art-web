@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addDealOwner, postDeal, removeDealOwner } from "../../../services/dealService";
+import { addDealOwner, removeDealOwner } from "../../../services/dealService";
 import ActionButton from "../../../components/button/ActionButton";
 import Form from "../../../components/Form";
 

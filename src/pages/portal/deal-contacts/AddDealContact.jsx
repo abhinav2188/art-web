@@ -13,13 +13,23 @@ const formFields = [
         type: "text"
     },
     {
-        label: "Email",
-        name: "email",
+        label: "Primary Email",
+        name: "email1",
         type: "text"
     },
     {
-        label: "Mobile",
-        name: "mobile",
+        label: "Secondary Email",
+        name: "email2",
+        type: "text"
+    },
+    {
+        label: "Primary Mobile",
+        name: "mobile1",
+        type: "text"
+    },
+    {
+        label: "Secondary Mobile",
+        name: "mobile2",
         type: "text"
     },
     {
@@ -27,13 +37,20 @@ const formFields = [
         name: "designation",
         type: "dropdown",
         dropdownType: "CONTACT_DESIGNATION"
-    }
+    },
+    {
+        label: "Address",
+        name: "address",
+        type: "text"
+    },
 ]
 
 const initialData = {
     name: "",
-    email: "",
-    mobile: "",
+    email1: "",
+    email2: "",
+    mobile1: "",
+    mobile2: "",
     designation: ""
 };
 
