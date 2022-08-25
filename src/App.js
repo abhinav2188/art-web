@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
@@ -19,7 +19,7 @@ function App() {
     <div className="flex">
       <UserProvider>
         <AxiosInterceptor>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route path='/' element={<Home />}>
                 <Route path='portal/' element={<Portal />} >
@@ -35,7 +35,7 @@ function App() {
                 <Route path='register' element={<Register />}></Route>
               </Route>
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </AxiosInterceptor>
       </UserProvider>
     </div>
