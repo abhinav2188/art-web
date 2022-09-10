@@ -15,7 +15,6 @@ const ExportExcel = () => {
             data => {
                 if (!!data) {
                     const url = URL.createObjectURL(new Blob([data]));
-                    console.log(url);
                     setLink(url);
                     setIsDownloadable(true);
                     alert("Excel file is created. Click Download!")
@@ -34,7 +33,7 @@ const ExportExcel = () => {
     return (
         isDownloadable ?
             <SubmitButton onClick={onDownload}><a href={link} download="data.xlsx">Download</a></SubmitButton> :
-            <SubmitButton onClick={exportExcel} loading={loading}>Export as Excel</SubmitButton>
+            <SubmitButton onClick={exportExcel} loading={loading}>Excel</SubmitButton>
     );
 }
 

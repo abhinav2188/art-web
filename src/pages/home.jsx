@@ -32,7 +32,7 @@ const Home = () => {
             <Navbar />
             <Outlet />
             <footer className="flex items-center justify-center mt-16">
-                copyright ART
+            © AR Thermosets
             </footer>
         </div>
     );
@@ -41,8 +41,3 @@ const Home = () => {
 
 export default Home;
 
-            // {
-            //     userContext.user ?
-            //         <Navigate to="portal" replace={true} /> :
-            //         <Navigate to="login" replace={true} />
-            // }

@@ -10,8 +10,6 @@ export async function getDealsExcel() {
         }
     )
         .catch(error => {
-            console.log("error:", error);
-            console.log(error.response);
             alert(error.response.status + ", " + error.response.data.responseMsg);
             return null;
         })

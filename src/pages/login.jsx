@@ -33,7 +33,6 @@ const Login = (props) => {
         setLoading(true);
         loginUser(formData.email, formData.password)
             .then((userData) => {
-                console.log(userData);
                 setLoading(false);
                 if (userData) {
                     userContext.setUser(userData);

@@ -55,7 +55,6 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit, reloadDealButton 
         getDropdownValues(null, formName, null).then(
             response => {
                 if (response) {
-                    console.log(response.dropdownKeyDetailsMap);
                     setDropdowns(response.dropdownKeyDetailsMap)
                 }
             }
@@ -69,7 +68,6 @@ const DealSection1 = ({ setDealId, setDealDetails, data, edit, reloadDealButton 
     function submitAddDealForm() {
         setLoading(true);
         postDeal(formData).then(response => {
-            console.log(response);
             if (response) {
                 setDealDetails(prevState => ({
                     ...prevState,

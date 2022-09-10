@@ -54,7 +54,6 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
         getDropdownValues(null, formName, dealId).then(
             response => {
                 if (response) {
-                    console.log(response.dropdownKeyDetailsMap);
                     setDropdowns(response.dropdownKeyDetailsMap)
                 }
             }
@@ -67,7 +66,6 @@ const AddDealConsultant = ({ dealId, addConsultantToView, setDisplay }) => {
         setLoading(true);
         addDealConsultant(dealId, formData).then(
             response => {
-                console.log("handlesubmit", response);
                 if (response) {
                     addConsultantToView(response.data);
                 }

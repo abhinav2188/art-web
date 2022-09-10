@@ -33,7 +33,6 @@ const Register = (props) => {
         event.preventDefault();
         registerUser(formData.email, formData.password, formData.mobile)
             .then((isSuccess) => {
-                console.log(isSuccess);
                 setLoading(false);
                 if (isSuccess) {
                     alert("login again with the credentials");
@@ -54,7 +53,5 @@ const Register = (props) => {
         </div>
     );
 }
-
-// <TextPassword name="confirmPassword" label="Confirm Password" value={formData.confirmPassword} onChange={handleChange} /> 
 
 export default Register;

@@ -40,7 +40,6 @@ const UsersPanel = (props) => {
     useEffect(() => {
         getAllUsers(pageNo).then(response => {
             if (!!response.data) {
-                console.log(response.data);
                 setUsersData(response.data);
             }
         })

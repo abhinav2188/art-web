@@ -66,8 +66,8 @@ const DealOwners = ({ dealId, setDealDetails, data }) => {
 
 
     return (
-        <div className="flex flex-col gap-8 border rounded-xl px-2">
-            <div className="flex flex-col">
+        <div className="flex flex-col gap-8">
+            <div className="flex flex-col border rounded-xl px-2">
                 <div className="flex justify-between border-b items-center py-1">
                     <h3>Deal Owners</h3>
                     <ActionButton onClick={() => setViewAdd(prevState => !prevState)} type="add">Add</ActionButton>

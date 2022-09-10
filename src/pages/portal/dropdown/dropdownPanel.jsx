@@ -75,7 +75,6 @@ const DropdownsPanel = (props) => {
     }
 
     const handleChange = (name, value) => {
-        console.log("handleChange(" + name + "," + value + ")");
         setDropdownData(prevState => ({
             ...prevState,
             [name]: value

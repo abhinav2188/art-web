@@ -28,7 +28,6 @@ const AddAttachment = ({ dealId, addAttachmentToView, setDisplay }) => {
         setLoading(true);
         addDealAttachment(dealId, formDataa).then(
             response => {
-                console.log("handlesubmit", response);
                 if (response) {
                     addAttachmentToView(response.data);
                 }

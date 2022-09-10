@@ -90,7 +90,6 @@ const AddDealInteraction = ({ dealId, addInteractionToView, setDisplay, reload }
         setLoading(true);
         addDealInteraction(dealId, formData).then(
             response => {
-                console.log("handlesubmit", response);
                 if (response) {
                     addInteractionToView(response.data);
                 }

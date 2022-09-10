@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 
 let instance = axios.create({
-    baseURL: process.env.REACT_APP_API_BASE_URL + "/api/"
+    baseURL: "http://192.168.1.6:8082/api/"
 });
 
 instance.interceptors.request.use(

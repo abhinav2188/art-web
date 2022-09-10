@@ -55,7 +55,6 @@ const UpdateParty = (props) => {
         getDropdownValues(null, "PARTY_DETAILS", null).then(
             response => {
                 if (response) {
-                    console.log(response.dropdownKeyDetailsMap);
                     setDropdowns(response.dropdownKeyDetailsMap)
                 }
             }
@@ -66,9 +65,7 @@ const UpdateParty = (props) => {
 
     function handleSubmit() {
         setLoading(true);
-        console.log("submitting update party:", formData);
         updateParty(props.formData.id, formData).then(response => {
-            console.log(response);
             if (response) {
                 props.updatePartyToView(response.data);
             }

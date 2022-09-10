@@ -21,7 +21,6 @@ const PartyPanel = (props) => {
         getAllParty(pageNo).then(
             response => {
                 if (response) {
-                    console.log(response);
                     setPartyData(response);
                 }
             }

@@ -74,7 +74,6 @@ const UpdateDeal = ({ dealId }) => {
 
 
     useEffect(() => {
-        console.log(flag);
         if (!dealId) return;
         getDeal(dealId).then(
             response => {

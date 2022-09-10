@@ -5,8 +5,8 @@ import ExportExcel from "./portal/ExportExcel";
 const Portal = (props) => {
     return (
         <div className="flex flex-col w-full">
-            <div className="flex gap-2 items-center shadow-sm justify-between px-4 py-1">
-                <div className="flex gap-3 items-center">
+            <div className="flex gap-3 items-center shadow-sm justify-between px-4 py-1 overflow-auto">
+                <div className="flex gap-3 items-center ">
                     <NavLink to="users" className={({ isActive }) => [" px-1", isActive ? "border-b-2 border-sky-600 text-sky-600 font-bold" : ""].join(" ")} >Users</NavLink>
                     <NavLink to="dropdowns" className={({ isActive }) => [" px-1", isActive ? "border-b-2 border-sky-600 text-sky-600 font-bold" : ""].join(" ")} >Dropdowns</NavLink>
                     <NavLink to="party" className={({ isActive }) => [" px-1", isActive ? "border-b-2 border-sky-600 text-sky-600 font-bold" : ""].join(" ")} >Party</NavLink>

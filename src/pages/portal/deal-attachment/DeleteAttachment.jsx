@@ -9,7 +9,6 @@ const DeleteAttachment = ({ dealId, attachment, removeAttachmentFromView }) => {
     function deleteAttachemnt() {
         setRemoveProgress(true);
         deleteDealAttachment(dealId, attachment.id).then(response => {
-            console.log(response);
             if (response) {
                 removeAttachmentFromView(attachment.id);
             }

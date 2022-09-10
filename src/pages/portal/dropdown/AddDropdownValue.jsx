@@ -37,7 +37,6 @@ const AddDropdownValue = ({ dropdownKey, addToView }) => {
         setValueSaveProgress(true);
         postDropdownValue(formData).then(
             response => {
-                console.log(response);
                 addToView(response);
                 setValueSaveProgress(false);
             }

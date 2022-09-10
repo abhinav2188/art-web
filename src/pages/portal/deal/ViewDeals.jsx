@@ -84,7 +84,6 @@ const ViewDeals = ({ pageNo, setPageNo, data, setData, setSection, setCurrentDea
         getDropdownValues(null, formName, null).then(
             response => {
                 if (response) {
-                    console.log(response.dropdownKeyDetailsMap);
                     setDropdowns(response.dropdownKeyDetailsMap)
                 }
             }

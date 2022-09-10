@@ -10,10 +10,7 @@ const SelectInput2 = ({ optionsList, name, label, onChange, multiple, value }) =
         setOptions([...optionsList.map(option => ({
             value: option.value,
             label: option.value
-        })), {
-            value: "",
-            label: "NONE"
-        }]);
+        }))]);
     }, [optionsList])
 
     useEffect(() => {

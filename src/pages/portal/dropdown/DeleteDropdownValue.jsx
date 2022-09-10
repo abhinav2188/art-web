@@ -11,7 +11,6 @@ const DeleteDropdownValue = ({ dropdownId, removeFromView }) => {
         setValueDeleteProgress(true);
         deleteDropdownValue(dropdownId).then(
             response => {
-                console.log(response);
                 removeFromView(dropdownId);
                 setValueDeleteProgress(false);
             }

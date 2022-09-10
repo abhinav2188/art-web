@@ -61,7 +61,6 @@ const AddDealQuery = ({ dealId, setDisplay }) => {
         setLoading(true);
         addDealQuery(dealId, formData).then(
             response => {
-                console.log("handlesubmit", response);
                 if (response) {
                     // addInteractionToView(response.data);
                 }

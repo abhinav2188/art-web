@@ -146,7 +146,6 @@ const DealSection4 = ({ dealId, setDealDetails, data, edit }) => {
         setLoading(true);
         putDealSection4(dealId, formData).then(
             response => {
-                console.log(response);
                 setLoading(false);
                 setDealDetails(prevState => ({
                     ...prevState,

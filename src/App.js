@@ -16,7 +16,7 @@ import Contacts from './pages/portal/contact/Contacts';
 
 function App() {
   return (
-    <div className="flex">
+    <div className="flex text-sm">
       <UserProvider>
         <AxiosInterceptor>
           <HashRouter>

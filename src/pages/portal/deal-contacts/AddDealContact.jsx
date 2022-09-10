@@ -72,7 +72,6 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
         getDropdownValues(null, formName, dealId).then(
             response => {
                 if (response) {
-                    console.log(response.dropdownKeyDetailsMap);
                     setDropdowns(response.dropdownKeyDetailsMap)
                 }
             }
@@ -85,7 +84,6 @@ const AddDealContact = ({ dealId, addContactToView, setDisplay }) => {
         setLoading(true);
         addDealContact(dealId, formData).then(
             response => {
-                console.log("handlesubmit", response);
                 if (response) {
                     addContactToView(response.data);
                 }
