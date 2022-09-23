@@ -44,7 +44,7 @@ const DealAttachments = ({ dealId }) => {
             <div className="flex flex-col">
                 <div className="flex justify-between border-b items-center py-1">
                     <h3>Deal Attachments</h3>
-                    <ActionButton type="add" onClick={() => setViewAddForm(true)} />
+                    <ActionButton type="add" onClick={() => setViewAddForm(f=>!f)} />
                 </div>
                 <div className="flex flex-wrap gap-2 py-4">
                     {

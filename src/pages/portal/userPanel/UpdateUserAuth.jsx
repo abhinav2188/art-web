@@ -31,9 +31,9 @@ const UpdateUserAuth = (props) => {
     const dropdowns = {
         USER_ROLES: {
             values: [
-                { value: "ADMIN" },
-                { value: "APP_MODERATOR" },
-                { value: "BACKEND_MODERATOR" }
+                { value: "ADMIN", label:"ADMIN" },
+                { value: "APP_MODERATOR", label:"APP_MODERATOR" },
+                { value: "BACKEND_MODERATOR", label:"BACKEND_MODERATOR" }
             ]
         }
     };
@@ -54,7 +54,7 @@ const UpdateUserAuth = (props) => {
     return (
         formData ?
             <Form
-                title="UPDATE User-Authorization"
+                title={` #${props.userData.id} UPDATE USER Authorization`}
                 fields={formFields}
                 formData={formData}
                 setFormData={setFormData}

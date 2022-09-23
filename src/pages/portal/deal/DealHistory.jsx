@@ -44,6 +44,7 @@ const DealHistory = ({ dealId, add }) => {
     const [pageNo, setPageNo] = useState(0);
 
     useEffect(() => {
+        if(!!!dealId) return;
         getDealHistory(dealId, pageNo).then(response => {
             if (response) {
                 setData(response.data);

@@ -96,7 +96,7 @@ const UpdateDeal = ({ dealId }) => {
                 <DealOwners dealId={dealId} setDealDetails={setDealDetails} data={dealDetails.authorizationDetails} />
                 <DealContacts dealId={dealId} />
                 <DealConsultants dealId={dealId} />
-                <DealInteractions dealId={dealId} add />
+                <DealInteractions dealId={dealId} />
                 <DealAttachments dealId={dealId} />
             </div> :
             <div className="flex flex-col gap-8 py-8">

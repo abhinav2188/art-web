@@ -19,7 +19,8 @@ const formFields = [
         label: "Sub-category Product",
         name: "subCategoryProduct",
         type: "dropdown",
-        dropdownType: "SUB_CATEGORY_PRODUCT"
+        dropdownType: "SUB_CATEGORY_PRODUCT",
+        multiple: true
     },
     {
         label: "Unit of Quantity",

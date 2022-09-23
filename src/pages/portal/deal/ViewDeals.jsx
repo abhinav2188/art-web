@@ -14,6 +14,14 @@ const viewFields = [
         name: "dealId"
     },
     {
+        label: "Created at",
+        name: "createTimestamp"
+    },
+    {
+        label: "Updated at",
+        name: "updateTimestamp"
+    },
+    {
         label: "Deal Name",
         name: "dealName"
     },
@@ -28,6 +36,10 @@ const viewFields = [
     {
         label: "Opening Date",
         name: "openingDate"
+    },
+    {
+        label: "Owners",
+        name: "dealOwners"
     },
     {
         label: "Active",

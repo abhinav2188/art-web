@@ -66,7 +66,7 @@ const DealContacts = ({ dealId, add }) => {
     const [viewAddForm, setViewAddForm] = useState(add);
 
     const tableActions = <div className="flex">
-        <ActionButton type="add" onClick={() => setViewAddForm(true)} />
+        <ActionButton type="add" onClick={() => setViewAddForm(f=>!f)} />
     </div>
 
     const DeleteContactButton = ({ contactId }) => {

@@ -31,6 +31,7 @@ const DropdownsPanel = (props) => {
                 if (!!response.keys) {
                     const options = response.keys.map(k => ({
                         value: k.dropdownKey,
+                        label: k.dropdownKey
                     }))
                     setDropdownKeys(options);
                 }
