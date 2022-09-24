@@ -8,19 +8,20 @@ const Home = () => {
     const userContext = useContext(UserContext);
     const navigate = useNavigate();
     useEffect(() => {
+        // console.log("user",userContext.user);
         if (userContext.user) {
             navigate("/portal", { replace: true })
-            // validateToken().then(
-            //     response => {
-            //         console.log("home token status:", response);
-            //         if (response) {
-            //             navigate("/portal", { replace: true })
-            //         }
-            //         else {
-            //             navigate("/login", { replace: true });
-            //         }
-            //     }
-            // )
+            validateToken().then(
+                response => {
+                    // console.log("home token status:", response);
+                    if (response.statusCode === 200) {
+                        navigate("/portal", { replace: true })
+                    }
+                    else {
+                        navigate("/login", { replace: true });
+                    }
+                }
+            )
         }
         else {
             navigate("/login", { replace: true });

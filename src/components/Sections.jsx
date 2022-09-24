@@ -11,7 +11,7 @@ const Sections = ({ sections, section, setSection }) => {
             <nav className="w-full flex items-center gap-1 pt-4">
                 {
                     sections.map((sec, i) =>
-                        <button className={`border border-sky-200 rounded-xl px-2 ${isSectionActive(sec.name) ? "bg-sky-200" : ""}`} onClick={() => setSection(sec.name)} key={i}>{sec.name}</button>
+                        <button key={sec.name} className={`border border-sky-200 rounded-xl px-2 ${isSectionActive(sec.name) ? "bg-sky-200" : ""}`} onClick={() => setSection(sec.name)}>{sec.name}</button>
                     )
                 }
             </nav>

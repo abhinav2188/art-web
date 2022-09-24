@@ -41,7 +41,8 @@ const initialData = {
         expectedDeliveryAddress: "",
         lastPurchaseDetails: "",
         competitorsInfo: "",
-        remarks: ""
+        remarks: "",
+        nfud: ""
     },
     additionalDetails: {
         dealStage: "",

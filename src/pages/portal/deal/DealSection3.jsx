@@ -25,6 +25,11 @@ const formFields = [
         dropdownType: "PAYMENT_TYPE"
     },
     {
+        label: "NFUD",
+        name: "nfud",
+        type: "date"
+    },
+    {
         label: "Expected Close Date",
         name: "expectedCloseDate",
         type: "date"
@@ -75,6 +80,10 @@ const viewFields = [
         name: "openingDate",
     },
     {
+        label: "NFUD",
+        name: "nfud",
+    },
+    {
         label: "Expected Close Date",
         name: "expectedCloseDate",
     },
@@ -120,7 +129,8 @@ const DealSection3 = ({ dealId, setDealDetails, data, edit }) => {
         expectedDeliveryAddress: "",
         lastPurchaseDetails: "",
         competitorsInfo: "",
-        remarks: ""
+        remarks: "",
+        nfud: ""
     });
 
     useEffect(() => {
