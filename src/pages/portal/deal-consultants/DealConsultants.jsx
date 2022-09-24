@@ -65,6 +65,7 @@ const DealConsultants = ({ dealId, add }) => {
         const [loading, setLoading] = useState(false);
 
         function deleteConsultant(consultantId) {
+            if (!window.confirm("Confirm to Delete!")) return;
             setLoading(true);
             deleteDealConsultant(consultantId).then(
                 response => {

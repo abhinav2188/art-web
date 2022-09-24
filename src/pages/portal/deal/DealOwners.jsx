@@ -42,6 +42,7 @@ const DealOwners = ({ dealId, setDealDetails, data }) => {
     const RemoveOwnerButton = ({ owner }) => {
         let [removeProgress, setRemoveProgress] = useState(false);
         function removeOwner() {
+            if (!window.confirm("Confirm to Delete!")) return;
             setRemoveProgress(true);
             removeDealOwner(dealId, owner).then(response => {
                 console.log(response);

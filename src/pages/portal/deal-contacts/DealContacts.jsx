@@ -73,6 +73,7 @@ const DealContacts = ({ dealId, add }) => {
         const [loading, setLoading] = useState(false);
 
         function deleteContact(contactId) {
+            if (!window.confirm("Confirm to Delete!")) return;
             setLoading(true);
             deleteDealContact(contactId).then(
                 response => {

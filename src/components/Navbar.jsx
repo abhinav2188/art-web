@@ -13,6 +13,7 @@ const Navbar = () => {
     }, [userContext.user])
 
     const logoutUser = () => {
+        if (!window.confirm("Confirm to Logout!")) return;
         userContext.setUser(null);
         window.sessionStorage.clear();
         navigate("/login", { replace: true });

@@ -77,6 +77,7 @@ const DealInteractions = ({ dealId, add }) => {
         const [loading, setLoading] = useState(false);
 
         function deleteInteraction(interactionId) {
+            if (!window.confirm("Confirm to Delete!")) return;
             setLoading(true);
             deleteDealInteraction(interactionId).then(
                 response => {

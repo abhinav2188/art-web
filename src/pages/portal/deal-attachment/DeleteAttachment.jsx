@@ -7,6 +7,7 @@ const DeleteAttachment = ({ dealId, attachment, removeAttachmentFromView }) => {
     let [removeProgress, setRemoveProgress] = useState(false);
 
     function deleteAttachemnt() {
+        if (!window.confirm("Confirm to Delete!")) return;
         setRemoveProgress(true);
         deleteDealAttachment(dealId, attachment.id).then(response => {
             if (response) {
