@@ -20,9 +20,9 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="shadow-sm w-full flex items-center gap-4 justify-between px-4">
+        <nav className="shadow-sm w-full flex items-center gap-4 py-2 justify-between px-4">
             <NavLink to="/">
-                <img src={logo} alt="logo" className="h-16" />
+                <img src={logo} alt="logo" className="h-10" />
             </NavLink>
             {
                 userContext.user === null ?
@@ -31,7 +31,7 @@ const Navbar = () => {
                         <NavLink to="/register" className={({ isActive }) => ["px-2 py-1 rounded border border-sky-500", isActive ? "bg-sky-500 text-white" : ""].join(" ")}>Register</NavLink>
                     </div> :
                     <div className="flex items-center gap-4">
-                        <button className="flex items-center gap-1 border rounded-full px-1">
+                        <button className="flex items-center gap-1 border border-gray-500 rounded-full px-1">
                             <span className="w-5 h-5">{User}</span>
                             <span>{userContext.user.email}</span>
                         </button>

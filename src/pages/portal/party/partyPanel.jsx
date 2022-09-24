@@ -49,13 +49,13 @@ const PartyPanel = (props) => {
     }
 
     const sections = [{
-        name: "add",
+        name: "Add Party",
         component: <AddParty addPartyToView={addPartyToView} />
     }, {
-        name: "view",
+        name: "View Parties",
         component: <ViewParty pageNo={pageNo} setPageNo={setPageNo} data={partyData} setData={setPartyData} setCurrentParty={setCurrentParty} setSection={setSection} />
     }, {
-        name: "update",
+        name: "Update Party",
         component: <UpdateParty updatePartyToView={updatePartyToView} formData={currentParty} />
     }];
 

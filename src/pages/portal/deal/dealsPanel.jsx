@@ -31,19 +31,19 @@ const DealsPanel = (props) => {
 
     const dealSections = [
         {
-            name: "viewDeals",
+            name: "View Deals",
             component: <ViewDeals data={dealsData} setData={setDealsData} pageNo={pageNo} setPageNo={setPageNo} setCurrentDealId={setCurrentDealId} setSection={setSection} />
         },
         {
-            name: "addDeal",
+            name: "Add Deal",
             component: <AddDeal addDealToView={addDealToView} />
         },
         {
-            name: "updateDeal",
+            name: "Update Deal",
             component: <UpdateDeal dealId={currentDealId} />
         },
         {
-            name: "History",
+            name: "Deal History",
             component: <DealHistory dealId={currentDealId} />
         }
     ]
