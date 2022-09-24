@@ -40,7 +40,7 @@ const ViewParty = ({ data, pageNo, setPageNo, setCurrentParty, setSection }) => 
     const entryActions = (party) => <div className="flex">
         <ActionButton onClick={() => {
             setCurrentParty(party);
-            setSection("update");
+            setSection("Update Party");
         }} type="edit">Update</ActionButton>
     </div>
 

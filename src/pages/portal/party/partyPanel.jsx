@@ -15,7 +15,7 @@ const PartyPanel = (props) => {
     const [pageNo, setPageNo] = useState(0);
     const [currentParty, setCurrentParty] = useState(null);
 
-    const [section, setSection] = useState("view");
+    const [section, setSection] = useState("View Parties");
 
     useEffect(() => {
         getAllParty(pageNo).then(
@@ -49,11 +49,11 @@ const PartyPanel = (props) => {
     }
 
     const sections = [{
-        name: "Add Party",
-        component: <AddParty addPartyToView={addPartyToView} />
-    }, {
         name: "View Parties",
         component: <ViewParty pageNo={pageNo} setPageNo={setPageNo} data={partyData} setData={setPartyData} setCurrentParty={setCurrentParty} setSection={setSection} />
+    }, {
+        name: "Add Party",
+        component: <AddParty addPartyToView={addPartyToView} />
     }, {
         name: "Update Party",
         component: <UpdateParty updatePartyToView={updatePartyToView} formData={currentParty} />

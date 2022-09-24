@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ActionButton from "../../../components/button/ActionButton";
-import PageButton from "../../../components/button/PageButton";
 import Form from "../../../components/Form";
 import Table from "../../../components/Table";
 import { getAllDeals } from "../../../services/dealService";
@@ -119,7 +118,7 @@ const ViewDeals = ({ pageNo, setPageNo, data, setData, setSection, setCurrentDea
             <div className="flex">
                 <ActionButton onClick={() => {
                     setCurrentDealId(deal.dealId);
-                    setSection("updateDeal");
+                    setSection("Update Deal");
                 }} type="edit" />
             </div>
         );

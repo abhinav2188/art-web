@@ -27,7 +27,7 @@ const DealsPanel = (props) => {
 
     const [currentDealId, setCurrentDealId] = useState(null);
 
-    const [section, setSection] = useState("viewDeals");
+    const [section, setSection] = useState("View Deals");
 
     const dealSections = [
         {
