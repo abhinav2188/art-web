@@ -8,7 +8,7 @@ const Table = ({ viewFields, entriesList, totalEntries, totalPages, pageNo, setP
         <div className="flex flex-col overflow-auto">
             <div className="flex justify-between items-center px-2 py-1">
                 <div className="flex items-center gap-2">
-                    <h3>{title}</h3>
+                    <p className="uppercase text-lg font-bold">{title}</p>
                     {!!totalEntries && <p className="rounded px-1 text-sm border">Total Enteries : {totalEntries}</p>}
                     {!!totalPages &&
                         <PageButton pageNo={pageNo} setPageNo={setPageNo} totalPagesCount={totalPages} />
