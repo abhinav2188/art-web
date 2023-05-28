@@ -16,7 +16,7 @@ export async function postDeal(data) {
 }
 
 export async function getAllDeals(pageNo, searchParams) {
-    return instance.get("/ext/deals/all", {
+    return instance.get("/int/deals/all", {
         params: {
             pageNo,
             ...searchParams
@@ -115,4 +115,18 @@ export async function removeDealOwner(dealId, data) {
             alert(error.status + ", " + error.response.data.responseMsg);
             return null;
         })
+}
+
+export async function deleteDeal(dealId){
+    const path = "/int/deals/" + dealId;
+    return instance.delete(path).then(
+        response => {
+            alert(response.data.responseMsg);
+            return true;
+        }
+    )
+    .catch(error => {
+        alert(error.status + ", " + error.response.data.responseMsg);
+        return false;
+    })
 }

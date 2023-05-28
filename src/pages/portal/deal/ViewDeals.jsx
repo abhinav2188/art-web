@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ActionButton from "../../../components/button/ActionButton";
 import Form from "../../../components/Form";
 import Table from "../../../components/Table";
-import { getAllDeals } from "../../../services/dealService";
+import { getAllDeals, deleteDeal } from "../../../services/dealService";
 import { getDropdownValues } from "../../../services/dropdownService";
 
 const formName = "DEAL_SEARCH";
@@ -106,6 +106,7 @@ const ViewDeals = ({ pageNo, setPageNo, data, setData, setSection, setCurrentDea
     function onSubmit() {
         setLoading(true);
         getAllDeals(pageNo, searchParams).then(response => {
+            console.log(response);
             if (response) {
                 setData(response.data);
             }
@@ -113,13 +114,37 @@ const ViewDeals = ({ pageNo, setPageNo, data, setData, setSection, setCurrentDea
         })
     }
 
-    const entryActions = (deal) => {
+    const DeleteDealButton = ({ deal }) => {
+        let [removeProgress, setRemoveProgress] = useState(false);
+        function deleteCurrentDeal() {
+            if (!window.confirm("Confirm to Delete!")) return;
+            setRemoveProgress(true);
+            deleteDeal(deal.dealId).then(isDeleted => {
+                if(isDeleted){
+                    setData(prevState => ({
+                        ...prevState,
+                        deals : prevState.deals.filter(d => d.dealId != deal.dealId),
+                        totalCount : prevState.totalCount - 1
+                    }))
+                }else{
+                    // nothing changes
+                }
+                setRemoveProgress(false);
+            });
+        }
         return (
+            <ActionButton loading={removeProgress} onClick={deleteCurrentDeal} type="delete" />
+        );
+    }
+
+    const entryActions = (deal) => {
+        return (            
             <div className="flex">
                 <ActionButton onClick={() => {
                     setCurrentDealId(deal.dealId);
                     setSection("Update Deal");
                 }} type="edit" />
+                <DeleteDealButton deal={deal} />
             </div>
         );
     }
