@@ -1,4 +1,5 @@
 import React from "react";
+import { formatField } from "../utils/StringUtils";
 
 const ViewDetails = ({ data, viewFields, actions, title }) => {
 
@@ -11,8 +12,8 @@ const ViewDetails = ({ data, viewFields, actions, title }) => {
             {
                 viewFields.map(viewField =>
                     <div className="flex gap-2 border-t py-1 px-2 items-center">
-                        <span className="text-sm uppercase text-sky-600 font-bold">{viewField.label}</span>
-                        <span>{String(data[viewField.name])}</span>
+                        <span className="text-sm uppercase text-sky-600">{viewField.label}</span>
+                        <span>{formatField(data[viewField.name])}</span>
                     </div>
                 )
             }

@@ -39,11 +39,7 @@ const viewFields = [
     {
         label: "Owners",
         name: "dealOwners"
-    },
-    {
-        label: "Active",
-        name: "isActive"
-    },
+    }
 ]
 
 const searchFormFields = [

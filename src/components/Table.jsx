@@ -1,7 +1,9 @@
 import React from "react";
 import PageButton from "./button/PageButton";
+import { formatField } from "../utils/StringUtils";
 
 const Table = ({ viewFields, entriesList, totalEntries, totalPages, pageNo, setPageNo, entryActions, title, tableActions }) => {
+
     return (
         <div className="flex flex-col border overflow-auto rounded-xl">
             <div className="flex justify-between items-center px-2 py-1">
@@ -34,7 +36,7 @@ const Table = ({ viewFields, entriesList, totalEntries, totalPages, pageNo, setP
                                     <tr key={i} className="border-t">
                                         {
                                             viewFields.map(viewField =>
-                                                <td className="px-2 ">{String(entry[viewField.name])}</td>)
+                                                <td className="px-2 ">{formatField(entry[viewField.name])}</td>)
                                         }
                                         <td className="px-2">
                                             {entryActions &&
