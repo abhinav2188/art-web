@@ -4,7 +4,7 @@ import { LeftArrow, RightArrow } from "../../svgs/svgIcons";
 
 const PageButton = (props) => {
     return (
-        <div className="flex items-center border rounded-full h-5">
+        <div className="flex items-center border rounded text-sm">
             <button className="w-5" onClick={() => {
                 props.setPageNo(prevPageNo => (prevPageNo - 1) < 0 ? prevPageNo : prevPageNo - 1);
             }}>{LeftArrow}</button>
